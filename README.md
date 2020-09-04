@@ -1,7 +1,7 @@
 # OSCHub
 
 <p align="center">
-    <img src="assets/Logo-Transparent.PNG" alt="wsoc logo">
+    <img src="assets/Logo-White-Header.png" alt="wsoc logo">
 </p>
 
 Project
