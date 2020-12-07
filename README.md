@@ -4,7 +4,7 @@
     <img src="assets/Logo-White-Header.png" alt="wsoc logo">
 </p>
 
-Project
+Project Information
 ---
 
 Development of a centralized hub for OSC livestreams, as a part of the Winter Season of Code Initiative.
