@@ -7,7 +7,7 @@
 Project Information
 ---
 
-Development of a centralized hub for OSC livestreams, as a part of the Winter Season of Code Initiative.
+Development of a centralized hub for OSC livestreams, as a part of the WSOC Initiative.
 
 Winter Season of Code Initiative
 ---
