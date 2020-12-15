@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+# Creating Views here (soon will be changed to class based-views).
+
+def liveEvents(request):
+    return render(request, 'livestreams/live_event.html')

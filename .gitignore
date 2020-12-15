@@ -3,8 +3,30 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+
 # C extensions
 *.so
+
+# Using PyCharm #
+.idea/
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.xml
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/gradle.xml
+.idea/**/libraries
+*.iws /out/
 
 # Distribution / packaging
 .Python
