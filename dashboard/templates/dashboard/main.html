@@ -5,6 +5,13 @@
     <title>Dashboard</title>
 </head>
 <body>
+{% load socialaccount %}
     <h1> This will be the DASHBOARD Page </h1>
+{% if user.is_authenticated %}
+<p> Welcome {{user.username }} </p>
+<a href="accounts/logout/">Sign out</a>
+{% else %}
+<a href="accounts/google/login/">Sign Up</a>
+{% endif %}
 </body>
 </html>
