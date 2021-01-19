@@ -134,13 +134,17 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
 
-SITE_ID=1
-ACCOUNT_LOGOUT_ON_GET=True
-ACCOUNT_LOGOUT_REDIRECT_URL="dashboard"
-LOGIN_REDIRECT_URL="dashboard"
+SITE_ID = 1
+ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_LOGOUT_REDIRECT_URL ="dashboard"
+LOGIN_REDIRECT_URL ="dashboard"
