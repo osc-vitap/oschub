@@ -6,5 +6,10 @@
 </head>
 <body>
     <h1> This will be the Events Page. All the events list will be displayed here. </h1>
+    <ol>
+        {% for event in events %}
+          <h2><li><a href="/eventreg/eventDetails/{{event.id}}">{{event.eventName}} </a></li></h2>
+        {% endfor %}
+      </ol>
 </body>
 </html>
