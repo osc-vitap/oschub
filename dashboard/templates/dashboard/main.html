@@ -11,10 +11,10 @@
 <p> Welcome {{user.first_name }} </p>
 <p> email {{user.email }} </p>
 <p> reg no {{user.last_name}} </p>
-<img scr="{{user.socialaccount_set.all.0.get_avatar_url}}"/>
-<a href="accounts/logout/">Sign out</a>
+<img src="{{user.socialaccount_set.all.0.get_avatar_url}}"/>
+<a href="/accounts/logout">Sign out</a>
 {% else %}
-<a href="accounts/google/login/">Sign Up</a>
+<a href="{% provider_login_url 'google'%}">Sign Up</a>
 {% endif %}
 </body>
 </html>
