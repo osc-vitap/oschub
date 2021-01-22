@@ -7,5 +7,6 @@ class EventData(models.Model):
     eventDescription = models.TextField()
     eventVenue = models.CharField(max_length=50)
     eventDate = models.DateField(editable=True)
-    eventTime = models.TimeField(editable=True)
+    eventStartTime = models.TimeField(editable=True)
+    eventEndTime = models.TimeField(editable=True)
     eventSpeaker = models.TextField(editable=True)
