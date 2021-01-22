@@ -1,10 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>User Account</title>
-</head>
-<body>
-    <h1> This will be the USER ACCOUNTS Page </h1>
-</body>
-</html>
+{% extends 'dashboard/base.html' %}
+
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'accounts/css/profile.css' %}">
+<div class="profile">
+  <div class="container">
+    <h1>User Profile</h1>
+  	<hr>
+	<div class="row">
+      <!-- left column -->
+      <div class="col-md-3">
+        <div class="text-center">
+          <img src="//placehold.it/150" class="avatar img-circle" alt="avatar">
+          <h6>Upload a different photo...</h6>
+          <input type="file" class="form-control">
+        </div>
+      </div>
+
+      <!-- edit form column -->
+      <div class="col-md-9 personal-info">
+        <h3>Personal info</h3>
+
+        <form class="form-horizontal" role="form">
+
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Full name:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="{{user.first_name }}" readonly>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Email:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="" readonly>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-lg-3 control-label">RegNo:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" value="" readonly>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Branch:</label>
+            <div class="col-lg-8">
+              <div class="ui-select">
+                <select id="branch" class="form-control">
+                  <option value="Cse">CSE</option>
+                  <option value="Ece">ECE</option>
+                  <option value="Mis">Mtech SWE</option>
+                  <option value="Bba">BBA</option>
+                  <option value="Vsl">VSL</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+              <label class="col-lg-3 control-label">OSC Member:</label>
+              <div class="col-lg-8">
+                  <input type="radio" id="yes" name="op" value="yes">
+                  <label for="yes">YES</label> &emsp;
+                  <input type="radio" id="no" name="op" value="no">
+                  <label for="no">NO</label><br>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+              <input type="button" class="btn btn-primary" value="Save Changes">
+              <span></span>&emsp;
+              <input type="reset" class="btn btn-default" value="Cancel">
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+    <hr>
+  </div>
+</div>
+{% endblock content %}
