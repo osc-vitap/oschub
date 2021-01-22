@@ -48,6 +48,7 @@ li {
 .navbar-header .title {
     font-size: 48px;
     padding-top: 30px;
+    padding-bottom: 35px;
     pointer-events: none;
 }
 
