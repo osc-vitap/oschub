@@ -1,0 +1,2 @@
+python-dotenv==0.15.0
+django-allauth==0.44.0
