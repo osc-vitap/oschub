@@ -1,12 +1,6 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
-import os
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'oschub.settings')
-
-import django
-django.setup()
-
 
 # creates a spreadSheet.
 def createSpreadSheet(mailList, title='NewSpreadsheet'):
@@ -27,13 +21,13 @@ def createSheet(title='EventName'):
         sheet = service.open('Events')  # opens the file "Events"
         print("[x] Found spreadsheet 'Events' ")
         if createdNewSpreadSheet:
-            sheet.add_worksheet(title, rows='1000', cols='20')
+            sheet.add_worksheet(title, rows='10000', cols='20')
             tmp = sheet.get_worksheet(0)
             sheet.del_worksheet(tmp)
             print(f'[!] Renamed Sheet1 to {title}')
             createdNewSpreadSheet = False
         else:
-            sheet.add_worksheet(title, rows='1000', cols='20')
+            sheet.add_worksheet(title, rows='10000', cols='20')
             print('[x] Added sheet - ' + title)
 
         worksheet = sheet.worksheet(title)
@@ -56,3 +50,6 @@ scope = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/au
          "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
 credential = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
 service = gspread.authorize(credential)
+
+if __name__ == '__main__':
+    createSheet('TestingSheet')

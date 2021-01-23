@@ -1,5 +1,8 @@
-from django.shortcuts import redirect
+from django.http import HttpResponseRedirect
+from django.contrib import messages
+from SheetMe import *
 
 
 def updateSheets(request):
-    return redirect('/admin')
+    messages.info(request, 'Updated data to GSheets !')
+    return HttpResponseRedirect("/admin/")
