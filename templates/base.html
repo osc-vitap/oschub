@@ -24,11 +24,11 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav navbar-right">
-              <li><a class="redir" href="/eventreg/eventsList">Events</a></li>
-              <li><a class="redir" href="/livestream">LiveStreams</a></li>
-              <li><a class="redir" href="#">Speakers</a></li>
-              <li><a class="redir" href="#">About</a></li>
-              <li><a class="redir" href="/accounts/profile">Profile</a></li>
+              <li><a class="redir" href="{% url 'eventreg:eventList' %}">Events</a></li>
+              <li><a class="redir" href="#">LiveStreams</a></li>
+              <li><a class="redir" href="{% url 'dashboard:speakers' %}">Speakers</a></li>
+              <li><a class="redir" href="{% url 'dashboard:about' %}">About</a></li>
+              <li><a class="redir" href="{% url 'accounts:profile' %}">Profile</a></li>
             </ul>
         </div>
       </div>

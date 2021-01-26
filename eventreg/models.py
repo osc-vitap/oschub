@@ -7,7 +7,7 @@ class Event(models.Model):
     eventDescription = models.TextField()
     eventVenue = models.CharField(max_length=50)
     eventDate = models.DateField(editable=True)
-    eventTime = models.TimeField(editable=True)
+    eventTime = models.TimeField(editable=True, default="20:00")
     eventSpeaker = models.TextField(editable=True)
 
     def get_absolute_url(self):
