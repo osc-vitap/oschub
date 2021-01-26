@@ -1,6 +1,8 @@
 from django.shortcuts import render
+from django.views.generic import DetailView
+from eventreg import models
 
-# Creating Views here (soon will be changed to class based-views).
 
-def liveEvents(request):
-    return render(request, 'livestreams/live_event.html')
+class LiveStreamView(DetailView):
+    template_name = "livestreams/live_event.html"
+    model = models.Event
