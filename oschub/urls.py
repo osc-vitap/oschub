@@ -9,5 +9,5 @@ urlpatterns = [
     path('dashboard/', include('dashboard.urls')),
     path('eventreg/', include('eventreg.urls')),
     path('livestream/', include('livestreams.urls')),
-    path('admin/updateSheet', views.updateSheets.as_view(), name='updateSheets'),
+    path('admin/updateSheet', views.updateSheets, name='updateSheets'),
 ]
