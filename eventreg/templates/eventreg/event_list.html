@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1> This will be the Events Page. All the events list will be displayed here. </h1>
+    <ol>
+        {% for event in events %}
+            <h2><li><a href="{% url 'eventreg:eventDetails' pk=event.pk %}">{{event.eventName}}</a></li></h2>
+        {% endfor %}
+    </ol>
+{% endblock content %}
