@@ -4,10 +4,8 @@ from . import models
 
 class EventListView(ListView):
     context_object_name = 'events'
-    model = models.EventData
+    model = models.Event
 
 
 class EventDetailView(DetailView):
-    context_object_name = 'event_details'
-    model = models.EventData
-    template_name = 'eventreg/event_detail.html'
+    model = models.Event
