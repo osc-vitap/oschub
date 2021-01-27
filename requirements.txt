@@ -1,2 +1,4 @@
 python-dotenv==0.15.0
 django-allauth==0.44.0
+gspread==3.6.0
+oauth2client==4.1.3
