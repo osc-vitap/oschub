@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import EventData, EventUserData
+from .models import Event, EventUserData
 
 
 class EventAdmin(admin.ModelAdmin):
@@ -12,5 +12,5 @@ class EventDataAdmin(admin.ModelAdmin):
     list_display = ['eventName', 'studentReg', 'studentName']
 
 
-admin.site.register(EventData, EventAdmin)
+admin.site.register(Event, EventAdmin)
 admin.site.register(EventUserData, EventDataAdmin)
