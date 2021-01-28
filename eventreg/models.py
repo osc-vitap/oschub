@@ -2,7 +2,7 @@ from django.db import models
 
 
 # Create your models here.
-class EventData(models.Model):
+class Event(models.Model):
     eventName = models.CharField(max_length=264, unique=True)
     eventDescription = models.TextField()
     eventVenue = models.CharField(max_length=50)
@@ -19,7 +19,7 @@ class EventData(models.Model):
 
 
 class EventUserData(models.Model):
-    eventName = models.ForeignKey(EventData, on_delete=models.CASCADE)
+    eventName = models.ForeignKey(Event, on_delete=models.CASCADE)
     studentName = models.CharField(max_length=264, unique=True)
     studentReg = models.CharField(max_length=10, unique=True)
     studentEmail = models.EmailField(unique=True)
