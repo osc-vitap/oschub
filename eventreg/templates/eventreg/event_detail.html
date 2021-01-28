@@ -7,7 +7,7 @@
     <p>Description: {{event.eventDescription}}</p>
     <p>Venue: {{event.eventVenue}}</p>
     <p>Date: {{event.eventDate}}</p>
-    <p>Time: {{event.eventTime}}</p>
+    <p>Time: {{event.eventStartTime}}</p>
     <p>Speaker: {{event.eventSpeaker}}</p>
     <a href="{% url 'eventreg:eventList' %}"><input type="button" value="BACK"></a>
 {% endblock content %}
