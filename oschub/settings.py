@@ -35,35 +35,72 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = ['django.contrib.admin', 'allauth', 'allauth.account', 'allauth.socialaccount',
-    'allauth.socialaccount.providers.google', 'django.contrib.auth', 'django.contrib.sites',
-    'django.contrib.contenttypes', 'django.contrib.sessions', 'django.contrib.messages', 'django.contrib.staticfiles',
-    'accounts', 'dashboard', 'eventreg', 'livestreams', ]
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    'django.contrib.auth',
+    'django.contrib.sites',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'accounts',
+    'dashboard',
+    'eventreg',
+    'livestreams',
+]
 
-MIDDLEWARE = ['django.middleware.security.SecurityMiddleware', 'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware', 'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware', 'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware', ]
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
 
 ROOT_URLCONF = 'oschub.urls'
 
 TEMPLATES = [
-    {'BACKEND': 'django.template.backends.django.DjangoTemplates', 'DIRS': [os.path.join(BASE_DIR, 'templates')],
-        'APP_DIRS': True, 'OPTIONS': {
-        'context_processors': ['django.template.context_processors.debug', 'django.template.context_processors.request',
-            'django.contrib.auth.context_processors.auth',
-            'django.contrib.messages.context_processors.messages', ], }, }, ]
+                {
+                    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+                    'DIRS': [os.path.join(BASE_DIR, 'templates')],
+                    'APP_DIRS': True, 'OPTIONS': {
+                        'context_processors': [
+                                                'django.template.context_processors.debug',
+                                                'django.template.context_processors.request',
+                                                'django.contrib.auth.context_processors.auth',
+                                                'django.contrib.messages.context_processors.messages',
+                                            ],
+                                        },
+             },
+]
 
 WSGI_APPLICATION = 'oschub.wsgi.application'
 
 AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend', 'allauth.account.auth_backends.AuthenticationBackend',)
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
 SOCIALACCOUNT_PROVIDERS = {
-    "google": {"APP": {"client_id": os.getenv("GOOGLE_CLIENT_ID"), "secret": os.getenv("GOOGLE_SECRET_KEY"), "key": ""},
+    "google": {
+        "APP": {
+            "client_id": os.getenv("GOOGLE_CLIENT_ID"),
+            "secret": os.getenv("GOOGLE_SECRET_KEY"),
+            "key": ""
+        },
         # These are provider-specific settings that can only be
         # listed here:
-        "SCOPE": ["profile", "email", ], "AUTH_PARAMS": {"access_type": "online", }}}
+        "SCOPE": ["profile", "email", ],
+        "AUTH_PARAMS": {"access_type": "online", }
+    }
+}
+
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
