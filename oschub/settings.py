@@ -15,13 +15,12 @@ from pathlib import Path
 import os
 
 load_dotenv()
-env_path = Path('.')/'.env'
+env_path = Path('.') / '.env'
 load_dotenv(dotenv_path=env_path)
-
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -33,7 +32,6 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = os.getenv("DEBUG")
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -68,21 +66,19 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'oschub.urls'
 
 TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
+                {
+                    'BACKEND': 'django.template.backends.django.DjangoTemplates',
+                    'DIRS': [os.path.join(BASE_DIR, 'templates')],
+                    'APP_DIRS': True, 'OPTIONS': {
+                        'context_processors': [
+                                        'django.template.context_processors.debug',
+                                        'django.template.context_processors.request',
+                                        'django.contrib.auth.context_processors.auth',
+                                        'django.contrib.messages.context_processors.messages',
+                            ],
+                    },
+             },
+    ]
 
 WSGI_APPLICATION = 'oschub.wsgi.application'
 
@@ -100,15 +96,11 @@ SOCIALACCOUNT_PROVIDERS = {
         },
         # These are provider-specific settings that can only be
         # listed here:
-        "SCOPE": [
-            "profile",
-            "email",
-        ],
-        "AUTH_PARAMS": {
-            "access_type": "online",
-        }
+        "SCOPE": ["profile", "email", ],
+        "AUTH_PARAMS": {"access_type": "online", }
     }
 }
+
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -119,7 +111,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -139,7 +130,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -157,6 +147,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 
 SITE_ID = 1
 ACCOUNT_LOGOUT_ON_GET = True
@@ -165,6 +156,5 @@ ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
-ACCOUNT_LOGOUT_REDIRECT_URL = "dashboard"
-LOGIN_REDIRECT_URL = "dashboard"
-
+ACCOUNT_LOGOUT_REDIRECT_URL = "/dashboard/"
+LOGIN_REDIRECT_URL = "/dashboard/"
