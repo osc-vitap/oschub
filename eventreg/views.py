@@ -8,4 +8,6 @@ class EventListView(ListView):
 
 
 class EventDetailView(DetailView):
+    context_object_name = 'event_details'
     model = models.Event
+    template_name = 'eventreg/event_detail.html'
