@@ -1,15 +1,13 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
 
 
-# Creating Views here (soon will be changed to class based-views).
-
-def profile(request):
-    return render(request, 'accounts/userprofile.html')
+class Profile(TemplateView):
+    template_name = 'accounts/userprofile.html'
 
 
-def login(request):
-    return render(request, 'accounts/login.html')
+class Login(TemplateView):
+    template_name = 'accounts/login.html'
 
 
-def signup(request):
-    return render(request, 'accounts/signup.html')
+class SignUp(TemplateView):
+    template_name = 'accounts/signup.html'
