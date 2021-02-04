@@ -1,13 +1,41 @@
 {% extends 'base.html' %}
+{% load static  %}
 {% block content %}
-    <h1> All the Event details with registrations available here! </h1>
-    <h2>Event Details:</h2>
-    <p>Id_num: {{event.id}}</p>
-    <p>Name: {{event.eventName}}</p>
-    <p>Description: {{event.eventDescription}}</p>
-    <p>Venue: {{event.eventVenue}}</p>
-    <p>Date: {{event.eventDate}}</p>
-    <p>Time: {{event.eventTime}}</p>
-    <p>Speaker: {{event.eventSpeaker}}</p>
-    <a href="{% url 'eventreg:eventList' %}"><input type="button" value="BACK"></a>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link rel="stylesheet" href="{% static 'eventreg/css/eventDetail.css' %}">
+
+  <div class="container top">
+      <div class="col-sm-7">
+        <img
+          id="eventpic"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeD6B-L5nGav12PJmINJAxsLhaN1fFhe9KCg&usqp=CAU"
+        />
+      </div>
+      <div class="col-sm-4 col-sm-offset-1" id="details">
+        <h1>{{ event.eventName }}</h1>
+        <h4>On {{ event.eventDate }}</h4>
+        <h4>TIME: {{ event.eventStartTime }}</h4>
+        <h4>Venue: {{ event.eventVenue }}</h4>
+        <h4>Speaker: {{ event.eventSpeaker }}</h4>
+        <button id="register">REGISTER</button>
+      </div>
+    </div>
+    <div class="container down">
+      <div class="col-sm-10" id="about">
+        <u>About Event</u>
+        <br />
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book. It has survived not only
+          five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged. It was popularised in the 1960s with
+          the release of Letraset sheets containing Lorem Ipsum passages, and
+          more recently with desktop publishing software like Aldus PageMaker
+          including versions of Lorem Ipsum.
+        </p>
+      </div>
+    </div>
 {% endblock content %}

@@ -39,9 +39,10 @@
   transform: scale(1.05);
   box-shadow: 10px 10px 15px rgba(0,0,0,0.3);
 }
-.card-text{
+p.card-text{
   height:80px;
   color: #f5f2f2;
+  padding: 7px;
 }
 
 .card::before, .card::after {

@@ -2,6 +2,12 @@
     background-color: #242B2E;
 }
 
-label, h3, h1 {
+label, h3 {
     color: #f5f2f2;
+}
+
+h1  {
+  color: #f5f2f2;
+  font-family: 'Inconsolata';
+  font-style: italic;
 }
