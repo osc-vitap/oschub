@@ -52,7 +52,6 @@ INSTALLED_APPS = [
     'accounts',
     'dashboard',
     'eventreg',
-    'livestreams',
 ]
 
 MIDDLEWARE = [
@@ -165,6 +164,6 @@ ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
-ACCOUNT_LOGOUT_REDIRECT_URL = "dashboard"
-#LOGIN_REDIRECT_URL = "dashboard"
+ACCOUNT_LOGOUT_REDIRECT_URL = "/dashboard/"
+LOGIN_REDIRECT_URL = "/dashboard/"
 
