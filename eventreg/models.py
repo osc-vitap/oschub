@@ -3,16 +3,18 @@ from django.urls import reverse
 
 
 class Event(models.Model):
-    eventName = models.CharField(max_length=264, unique=True)
-    eventDescription = models.TextField()
-    eventVenue = models.CharField(max_length=50)
-    eventDate = models.DateField(editable=True)
-    eventStartTime = models.TimeField(editable=True, default="20:00")
-    eventEndTime = models.TimeField(editable=True, default="20:00")
-    eventRegEndDate = models.DateField(editable=True)
-    eventRegEndTime = models.TimeField(editable=True, default="20:00")
-    eventSpeaker = models.TextField(editable=True)
-    eventURL = models.URLField(editable=True)
+    eventName = models.CharField(max_length=264, unique=True)  # Event Name
+    eventDescription = models.TextField()  # About the Event
+    eventVenue = models.CharField(max_length=50)  # Venue for the Event
+    eventDate = models.DateField(editable=True)  # Event date
+    eventStartTime = models.TimeField(editable=True, default="20:00")  # Event starting time
+    eventEndTime = models.TimeField(editable=True, default="20:00")  # Event ending time
+    eventRegEndDate = models.DateField(editable=True)  # Event Registration deadline date
+    eventRegEndTime = models.TimeField(editable=True, default="20:00")  # Event Registration deadline time
+    eventSpeaker = models.TextField(editable=True)  # Speakers in the Event
+    eventURL = models.URLField(editable=True)  # Event Livestream URL link
+    eventDocumentation = models.URLField(editable=True, default='')  # Event Documentation URL link
+    eventLogo = models.ImageField(editable=True, upload_to='EventBanner/')  # Event Banner image
 
     def get_absolute_url(self):
         return reverse("eventreg:detail", kwargs={"pk": self.pk})

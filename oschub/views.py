@@ -1,8 +1,10 @@
 from django.http import HttpResponseRedirect
-from django.contrib import messages
 from SheetMe import *
+from django.views import View
 
 
-def updateSheets(request):
-    messages.info(request, 'Updated data to GSheets !')
-    return HttpResponseRedirect("/admin/")
+class UpdateSheet(View):
+    def get(self, request):
+        # Will be updated with the database integration methods in future. Remove the comment from below line to test the button.
+        createSheet('GetTest')
+        return HttpResponseRedirect("/admin/")
