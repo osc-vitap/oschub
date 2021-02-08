@@ -10,7 +10,7 @@ class Event(models.Model):
     eventStartTime = models.TimeField(editable=True, default="20:00")
     eventEndTime = models.TimeField(editable=True, default="20:00")
     eventRegEndDate = models.DateField(editable=True)
-    eventRegEndTime = models.DateField(editable=True)
+    eventRegEndTime = models.TimeField(editable=True, default="20:00")
     eventSpeaker = models.TextField(editable=True)
     eventURL = models.URLField(editable=True)
 

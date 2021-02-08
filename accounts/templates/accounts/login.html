@@ -1,4 +1,88 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSCHub | Login</title>
+{% load static %}
 {% block content %}
-    <h1>This is LOGIN Page</h1>
+    <title>OSCHub | Login</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/login.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+     <!-- LOGIN MODULE -->
+    <div class="login">
+        <div class="wrap">
+            <!-- SLIDER -->
+            <div class="content">
+                <!-- LOGO -->
+                <div class="logo">
+                    <a href="#"><img src="{% static 'accounts/images/oschub-logo.PNG' %}" alt="oschubLogo"></a>
+                </div>
+                <!-- SLIDESHOW -->
+                <div id="slideshow">
+                    <div class="one">
+                        <h2><span>EVENTS</span></h2>
+                        <p>Login up to attend many awesome events happening ahead.</p>
+                    </div>
+                    <div class="two">
+                        <h2><span>LEARNING</span></h2>
+                        <p>Many speakers all around bring us their experience and skills to you.</p>
+                    </div>
+                    <div class="three">
+                        <h2><span>GROUPS</span></h2>
+                        <p>Create your own groups and connect with others that share your interests</p>
+                    </div>
+                    <div class="four">
+                        <h2><span>SHARING</span></h2>
+                        <p>Share your works and knowledge with the community on the public showcase section</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LOGIN FORM -->
+            <div class="user">
+                <div class="form-wrap">
+                    <!-- TABS -->
+                    <div class="tabs">
+                        <h3 class="login-tab"><a class="log-in active" href="#login-tab-content"><span>Login<span></a></h3>
+                        <h3 class="signup-tab"><a class="sign-up" href="#signup-tab-content"><span>About OSCHub</span></a></h3>
+                    </div>
+                    <!-- TABS CONTENT -->
+                    <div class="tabs-content">
+                        <!-- TABS CONTENT LOGIN -->
+                        <div id="login-tab-content" class="active">
+                            <form class="login-form">
+                                <center>
+                                <div class="google-btn">
+                                    <a href="/accounts/google/login">
+                                    <div class="google-icon-wrapper">
+                                        <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+                                    </div>
+                                    <p class="btn-text" style="font-family: 'Reem Kufi';"><b>LOGIN with VIT-AP</b></p>
+                                    </a>
+                                </div>
+                               </center>
+                            </form>
+                        </div>
+                        <!-- TABS CONTENT About OSCHub -->
+                        <div id="signup-tab-content">
+                            <form class="signup-form">
+                                <p>OSCHub is an initiative by OSC VIT-AP, which is a centralized hub for all the events,
+                                    with registeration, checking-in, attendance and all the livestreams developed for the
+                                    ease of students to participate in the many awesome events, attending online and grabbing
+                                    opportunities ahead.
+                                </p>
+                            </form>
+                            <div class="help-action">
+                                <center><p><a class="agree" href="#">Developed by OSC VIT-AP</a></p></center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{% static 'accounts/js/login.js' %}"></script>
 {% endblock content %}

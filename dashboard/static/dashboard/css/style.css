@@ -4,11 +4,11 @@
 
 ul {
   margin: 150px auto 0;
-  padding: 0;
+  padding-right: 20px;
   list-style: none;
-  display: table;
-  width: 600px;
-  text-align: center;
+  /*display: table;*/
+  /*width: 600px;*/
+  text-align: right;
 }
 
 li {
