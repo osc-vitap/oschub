@@ -13,18 +13,18 @@
         />
       </div>
       <div class="col-sm-4 col-sm-offset-1" id="details">
-        <h1>{{ event.eventName }}</h1>
-        <h4>On {{ event.eventDate }}</h4>
-        <h4>TIME: {{ event.eventStartTime }}</h4>
-        <h4>Venue: {{ event.eventVenue }}</h4>
-        <h4>Speaker: {{ event.eventSpeaker }}</h4>
+        <h1>{{ event_details.eventName }}</h1>
+        <h4>On {{ event_details.eventDate }}</h4>
+        <h4>TIME: {{ event_details.eventStartTime }}</h4>
+        <h4>Venue: {{ event_details.eventVenue }}</h4>
+        <h4>Speaker: {{ event_details.eventSpeaker }}</h4>
         <button id="register">REGISTER</button>
       </div>
     </div>
     <div class="container down">
       <div class="col-sm-10" id="about">
         <u>About Event</u>
-        <br />
+        <br/>
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -36,6 +36,7 @@
           more recently with desktop publishing software like Aldus PageMaker
           including versions of Lorem Ipsum.
         </p>
+          <p>{{ event_details.eventDescription }}</p>
       </div>
     </div>
 {% endblock content %}

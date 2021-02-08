@@ -152,3 +152,6 @@ dmypy.json
 
 # Credentials File for SheetMe.py
 credentials.json
+
+# Media files
+media/
