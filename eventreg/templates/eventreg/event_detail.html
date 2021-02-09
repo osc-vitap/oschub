@@ -9,6 +9,11 @@
     <p>Date: {{event_details.eventDate}}</p>
     <p>Time: {{event_details.eventStartTime}}</p>
     <p>Speaker: {{event_details.eventSpeaker}}</p>
+    <img src="{{event_details.eventLogo}}">
     <a href="{% url 'eventreg:eventList' %}"><input type="button" value="BACK"></a>
-    
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="eventname" value="{{event_details.eventName}}">
+        <input type="submit" name="submit" value="submit" />
+    </form>
 {% endblock content %}
