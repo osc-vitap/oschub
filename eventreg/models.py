@@ -15,7 +15,7 @@ class Event(models.Model):
     eventSpeaker = models.TextField(editable=True)  # Speakers in the Event
     eventURL = models.URLField(editable=True)  # Event Livestream URL link
     eventDocumentation = models.URLField(editable=True, default='')  # Event Documentation URL link
-    eventLogo = models.ImageField(editable=True, upload_to='EventBanner/')  # Event Banner image
+    eventLogo = models.URLField(editable=True, default="https://drive.google.com/file/d/1hl6Xt2cnUMC5RUrmXH6w-kQD8fhuF3rC/view?usp=sharing")  # Event image
 
     def get_absolute_url(self):
         return reverse("eventreg:detail", kwargs={"pk": self.pk})
