@@ -19,7 +19,7 @@
             <h4 class="item-card-title mt-3 mb-3">
                 <a href="{% url 'eventreg:eventDetails' pk=event.pk %}">{{event.eventName}}</a>
             </h4>
-            <p class="card-text">{{event.eventDescription}}</p>
+            <p class="card-text">{{event.eventCaption}}</p>
           </div>
         </div>
           {% endfor %}
