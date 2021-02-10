@@ -19,8 +19,11 @@ def createSpreadSheet(mailList, title='NewSpreadsheet'):
         if not createdNewSpreadSheet:
             sheet = service.create(title)
             print('[$] SpreadSheet ID: ' + str(sheet.id))
-            for emailid in mailList:
-                sheet.share(emailid, 'user', 'owner')
+            for index, emailid in enumerate(mailList):
+                if index == 0:
+                    sheet.share(emailid, perm_type='user', role='owner')
+                else:
+                    sheet.share(emailid, perm_type='user', role='writer', notify=False)
                 print('Shared sheet to ' + emailid)
             createdNewSpreadSheet = True
     except gspread.exceptions.APIError:
@@ -75,7 +78,15 @@ def updateData():
 
     sheet = service.open('Events')
 
-    # get all the available worksheets
+    #  sharing the sheet once again to share the file with newly added user
+    for index, emailid in enumerate(admin_mail):
+        if index == 0:
+            pass  # not adding the owner again to fix the spamming of notifications
+        else:
+            sheet.share(emailid, perm_type='user', role='writer', notify=False)
+            print('Shared sheet to ' + emailid)
+
+    #  get all the available worksheets
     worksheet = sheet.worksheets()
     sheetList = []
     for work in worksheet:
@@ -89,16 +100,17 @@ def updateData():
         else:
             students = EventUserData.objects.filter(eventName__eventName=event)
             for student in students:
-                studentList.append(
-                    [student.studentReg, student.studentName, student.studentEmail, "Yes" if student.studentRegistered else "No",
-                     "Yes" if student.studentCheckedIn else "No"])
+                studentList.append([student.studentReg, student.studentName, student.studentEmail,
+                                    "Yes" if student.studentRegistered else "No",
+                                    "Yes" if student.studentCheckedIn else "No"])
             worksheet = createSheet(event)
             worksheet.batch_update([{'range': f'A2:E{len(studentList) + 1}', 'values': studentList}])
             print('[x] Added sample data set to sheet ' + event)
 
 
-# client email: kodereaper@gsheettesting-160850134856.iam.gserviceaccount.com
-admin_mail = ['kodetester.gsheets@gmail.com']  # add all the admin emails to share the sheet with them
+# CAUTION: First Email is given owner access, rest all emails are given writer access due to API restrictions.
+admin_mail = ['kodetester.gsheets@gmail.com',
+              'krishna.19bce7357@vitap.ac.in']  # add all the admin emails to share the sheet with them
 createdNewSpreadSheet = False
 SCOPE = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/spreadsheets',
          "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
