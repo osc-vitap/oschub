@@ -5,6 +5,7 @@ from django.urls import reverse
 
 class Event(models.Model):
     eventName = models.CharField(max_length=264, unique=True)  # Event Name
+    eventCaption = models.TextField(editable=True, default='', max_length=60) # Event Caption to be displayed on the Event Page
     eventDescription = models.TextField()  # About the Event
     eventVenue = models.CharField(max_length=50)  # Venue for the Event
     eventDate = models.DateField(editable=True)  # Event date
@@ -16,7 +17,6 @@ class Event(models.Model):
     eventURL = models.URLField(editable=True)  # Event Livestream URL link
     eventDocumentation = models.URLField(editable=True, default='')  # Event Documentation URL link
     eventLogo = models.URLField(editable=True, default="https://drive.google.com/file/d/1hl6Xt2cnUMC5RUrmXH6w-kQD8fhuF3rC/view?usp=sharing")  # Event image
-    eventCaption = models.TextField(editable=True, default='', max_length=60) # Event Caption to be displayed on the Event Page
 
     def get_absolute_url(self):
         return reverse("eventreg:detail", kwargs={"pk": self.pk})
