@@ -8,5 +8,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('dashboard/', include('dashboard.urls')),
     path('eventreg/', include('eventreg.urls')),
-    path('admin/updateSheet', UpdateSheet.as_view(), name='updateSheets'),
+    path('admin/updateSheet', UpdateSheet.as_view(), name='updateSheet'),
 ]
