@@ -2,12 +2,18 @@
 {% block content %}
     <h1> All the Event details with registrations available here! </h1>
     <h2>Event Details:</h2>
-    <p>Id_num: {{event.id}}</p>
-    <p>Name: {{event.eventName}}</p>
-    <p>Description: {{event.eventDescription}}</p>
-    <p>Venue: {{event.eventVenue}}</p>
-    <p>Date: {{event.eventDate}}</p>
-    <p>Time: {{event.eventStartTime}}</p>
-    <p>Speaker: {{event.eventSpeaker}}</p>
+    <p>Id_num: {{event_details.id}}</p>
+    <p>Name: {{event_details.eventName}}</p>
+    <p>Description: {{event_details.eventDescription}}</p>
+    <p>Venue: {{event_details.eventVenue}}</p>
+    <p>Date: {{event_details.eventDate}}</p>
+    <p>Time: {{event_details.eventStartTime}}</p>
+    <p>Speaker: {{event_details.eventSpeaker}}</p>
+    <img src="{{event_details.eventLogo}}">
     <a href="{% url 'eventreg:eventList' %}"><input type="button" value="BACK"></a>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="eventname" value="{{event_details.eventName}}">
+        <input type="submit" name="submit" value="submit" />
+    </form>
 {% endblock content %}
