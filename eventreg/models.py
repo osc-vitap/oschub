@@ -21,6 +21,9 @@ class Event(models.Model):
     def get_absolute_url(self):
         return reverse("eventreg:detail", kwargs={"pk": self.pk})
 
+    def get_eventLogo(self):
+        return "https://drive.google.com/uc?export=view&id={}".format(str(self.eventLogo.split('/')[5]))
+
     def __str__(self):
         return str(self.eventName)
 
