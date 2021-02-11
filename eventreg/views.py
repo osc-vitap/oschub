@@ -1,7 +1,6 @@
 from django.views.generic import (ListView, DetailView)
 from django.http import HttpResponseRedirect
-#from . import models
-from eventreg.models import EventUserData,Event
+from eventreg.models import EventUserData, Event
 
 
 class EventListView(ListView):
@@ -22,13 +21,14 @@ class EventDetailView(DetailView):
         if request.user.is_anonymous:
             return HttpResponseRedirect("/accounts/google/login/")
 
-        user_name=request.user.first_name
-        user_reg = request.user.last_name
+        user_name = request.user.first_name.title()
         user_email = request.user.email
-        event_name=request.POST.get("eventname","")
-        eventdata_instance=EventUserData.objects.create(eventName=Event.objects.get(eventName=event_name),studentName=user_name,
-                                       studentReg=user_reg,studentEmail=user_email,
-                                       studentRegistered=True,studentCheckedIn=False)
+        user_reg = user_email.split('.')[1].split('@')[0].upper()
+        event_name = request.POST.get("eventname", "")
+        eventdata_instance = EventUserData.objects.create(eventName=Event.objects.get(eventName=event_name),
+                                                          studentName=user_name,
+                                                          studentReg=user_reg,
+                                                          studentEmail=user_email,
+                                                          studentRegistered=True,
+                                                          studentCheckedIn=False)
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
-
-
