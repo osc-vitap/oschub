@@ -14,7 +14,7 @@ class EventDetailView(DetailView):
     template_name = 'eventreg/event_detail.html'
 
     def get_context_data(self, **kwargs):
-        context = context = super().get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         return context
 
     def post(self, request, *args, **kwargs):
@@ -32,3 +32,10 @@ class EventDetailView(DetailView):
                                                           studentRegistered=True,
                                                           studentCheckedIn=False)
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+
+class LiveStreamView(DetailView):
+    context_object_name = "event"
+    template_name = "eventreg/live_event.html"
+    model = Event
+
