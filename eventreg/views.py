@@ -1,6 +1,3 @@
-from django.shortcuts import redirect, render
-from django.template import RequestContext
-from django.urls import reverse
 from django.views.generic import (ListView, DetailView)
 from django.http import HttpResponseRedirect
 from eventreg.models import EventUserData, Event
@@ -51,4 +48,3 @@ class LiveStreamView(DetailView):
     context_object_name = "event"
     template_name = "eventreg/live_event.html"
     model = Event
-
