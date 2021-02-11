@@ -1,9 +1,31 @@
 {% extends 'base.html' %}
+
+{% load static %}
+
 {% block content %}
-    <h1> This will be the Events Page. All the events list will be displayed here. </h1>
-    <ol>
-        {% for event in events %}
-            <h2><li><a href="{% url 'eventreg:eventDetails' pk=event.pk %}">{{event.eventName}}</a></li></h2>
-        {% endfor %}
-    </ol>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'eventreg/css/eventList.css' %}">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <div class="eventList">
+
+    <div class="container mt-2">
+      <div class="row">
+
+          {% for event in events %}
+        <div class="col-md-3 col-sm-6 item">
+          <div class="card item-card card-block">
+            <h4 class="card-title text-right"><i class="material-icons">event</i></h4>
+            <img class="eventLogo" src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" alt="Photo of sunset">
+            <h4 class="item-card-title mt-3 mb-3">
+                <a href="{% url 'eventreg:eventDetails' pk=event.pk %}">{{event.eventName}}</a>
+            </h4>
+            <p class="card-text">{{event.eventCaption}}</p>
+          </div>
+        </div>
+          {% endfor %}
+
+      </div>
+    </div>
+        </div>
+
 {% endblock content %}
