@@ -53,7 +53,10 @@ p.card-text{
   left: 0;
   transform: scale3d(0, 0, 1);
   transition: transform .3s ease-out 0s;
-  background: rgba(255, 255, 255, 0.1);
+ /* background: rgba(255, 255, 255, 0.1);*/
+  background-color: #0cbaba;
+  background-image: linear-gradient(315deg, #0cbaba 0%, #380036 74%);
+  opacity: 0.3;
   content: '';
   pointer-events: none;
 }
@@ -65,4 +68,8 @@ p.card-text{
 }
 .card:hover::before, .card:hover::after, .card:focus::before, .card:focus::after {
   transform: scale3d(1, 1, 1);
+}
+
+a:hover {
+  text-decoration: none;
 }
