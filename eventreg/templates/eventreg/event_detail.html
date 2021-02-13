@@ -9,7 +9,7 @@
       <div class="col-sm-7">
         <img
           id="eventpic"
-          src="/media/{{event_details.eventLogo}}"
+          src="{{event_details.eventLogo}}"
         />
       </div>
       <div class="col-sm-4 col-sm-offset-1" id="details">
@@ -18,7 +18,11 @@
         <h4>TIME: {{ event_details.eventStartTime }}</h4>
         <h4>Venue: {{ event_details.eventVenue }}</h4>
         <h4>Speaker: {{ event_details.eventSpeaker }}</h4>
-        <button id="register">REGISTER</button>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="eventname" value="{{event_details.eventName}}">
+            <input id="register" type="submit" name="submit" value="REGISTER" />
+        </form>
       </div>
     </div>
     <div class="container down">
@@ -36,7 +40,7 @@
           more recently with desktop publishing software like Aldus PageMaker
           including versions of Lorem Ipsum.
         </p>
-          <p>{{ event_details.eventDescription }}</p>
+        <p>{{ event_details.eventDescription }}</p>
       </div>
     </div>
 {% endblock content %}
