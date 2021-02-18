@@ -58,7 +58,7 @@ def createSheet(title='EventName', row='10000', col='25'):
         createSheet(title)
 
 
-def updateData():
+def getCompletedEvents():
     # Filtering out the events that are over
     events = Event.objects.all().filter(eventDate__lt=datetime.date.today())  # gets the events with date before today
     eventlist = []
@@ -68,7 +68,11 @@ def updateData():
         eventEndTime__lt=datetime.datetime.now().strftime('%H:%M:%S'))
     for event in events:
         eventlist.append(event.eventName)
+    return eventlist
 
+
+def updateData():
+    eventlist = getCompletedEvents()
     # If spreadsheet not found then make a new one
     try:
         sheet = service.open('Events')
@@ -109,8 +113,7 @@ def updateData():
 
 
 # CAUTION: First Email is given owner access, rest all emails are given writer access due to API restrictions.
-admin_mail = ['kodetester.gsheets@gmail.com',
-              'krishna.19bce7357@vitap.ac.in']  # add all the admin emails to share the sheet with them
+admin_mail = ['kodetester.gsheets@gmail.com']  # add all the admin emails to share the sheet with them
 createdNewSpreadSheet = False
 SCOPE = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/spreadsheets',
          "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
