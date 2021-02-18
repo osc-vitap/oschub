@@ -3,7 +3,8 @@
 {% load static %}
 
 {% block content %}
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{% static 'eventreg/css/eventList.css' %}">
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
     <div class="eventList">
@@ -21,7 +22,7 @@
                 <!--<a href="{% url 'eventreg:eventDetails' pk=event.pk %}">{{event.eventName}}</a>-->
                 {{event.eventName}}
             </h4>
-            <p class="card-text">{{event.eventCaption}}</p>
+            <p class="card-text" id="caption">{{event.eventCaption}}</p>
           </div>
         </a>
         </div>
