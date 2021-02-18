@@ -1,11 +1,19 @@
 {% extends 'eventreg/livestream_base.html' %}
 {% block livestream_block %}
-    <iframe src="{{ event.eventURL }}" allowfullscreen></iframe>
+    <iframe width="496" height="279" src="{{event.get_eventurl}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 {% endblock livestream_block %}
 {% block body_block %}
     <h1>{{ event.eventName }}</h1>
     <h2>{{ event.eventSpeaker }}</h2>
     <p>{{ event.eventDescription }}</p>
-    <a href="#">Check in</a>
+    <p>{{is_stu_checkedIn}}</p>
+    {% if is_stu_checkedIn %}
+    <p>attended</p>
+    {% else %}
+     <form action="" method="post">
+        {% csrf_token %}
+    <input id="register" type="submit" name="submit" value="Checkin" />
+    </form>
+    {% endif %}
     <a href="{{ event.eventDocumentation }}">Documentation</a>
 {% endblock %}

@@ -48,3 +48,23 @@ class LiveStreamView(DetailView):
     context_object_name = "event"
     template_name = "eventreg/live_event.html"
     model = Event
+
+    def get(self, request, *args, **kwargs):
+        if request.user.is_anonymous:
+            return HttpResponseRedirect("/accounts/google/login/")
+        a = EventUserData.objects.filter(eventName=kwargs['pk'], studentEmail=request.user.email)
+        if len(a) > 0:
+            if a[0].studentCheckedIn:
+                eve = True
+            else:
+                eve = False
+        else:
+            eve = False
+        self.object = self.get_object()
+        context = self.get_context_data(object=self.object)
+        context["is_stu_checkedIn"] = eve
+        return self.render_to_response(context)
+
+    def post(self, request, *args, **kwargs):
+        EventUserData.objects.filter(eventName=kwargs['pk'], studentEmail=request.user.email).update(studentCheckedIn=True)
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))

@@ -24,7 +24,7 @@
           <a href="/accounts/google/login">LOGIN TO REGISTER</a>
           {% else %}
           {% if is_stu_registered %}
-          <a href="{% url 'eventreg:eventLiveStream' pk=event_details.id %}"><h1>live</h1></a>
+          <a href="{% url 'eventreg:eventLiveStream' pk=event_details.id %}"><h1><input type="button" id="live" value="gotolivestream"></h1></a>
           {% else %}
           <input id="register" type="submit" name="submit" value="REGISTER" />
           {% endif %}

@@ -27,6 +27,9 @@ class Event(models.Model):
     def get_eventLogo(self):
         return "https://drive.google.com/uc?export=view&id={}".format(str(self.eventLogo.split('/')[5]))
 
+    def get_eventurl(self):
+        return "https://www.youtube.com/embed/{}".format(str(self.eventURL.split('=')[1]))
+
     def __str__(self):
         return str(self.eventName)
 
