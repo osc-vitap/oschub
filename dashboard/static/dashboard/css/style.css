@@ -2,8 +2,8 @@
     background-color: #242B2E;
 }
 
-ul {
-  margin: 150px auto 0;
+.ulitem {
+  margin: 0;
   padding-right: 20px;
   list-style: none;
   /*display: table;*/
@@ -11,7 +11,7 @@ ul {
   text-align: right;
 }
 
-li {
+.nav-item {
   display: table-cell;
   position: relative;
   padding: 15px 0;
