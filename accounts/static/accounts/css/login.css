@@ -14,13 +14,13 @@ html {
   padding: 0;
   box-sizing: inherit;
 }
-a {
+/*a {
   color: #666;
   text-decoration: none;
 }
 a:hover {
   color: #4fda8c;
-}
+}*/
 
 /* BODY */
 body {
@@ -273,7 +273,7 @@ a.button:hover {
 .help-action {
   padding: 0.4em 0 0;
   font-size: 0.93em;
-  margin-top: 110px;
+  margin-top: 90px;
   color: #999;
 }
 .form-wrap .tabs-content div[id$="tab-content"] {
