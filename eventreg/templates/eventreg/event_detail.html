@@ -18,18 +18,36 @@
       <h4>TIME: {{ event_details.eventStartTime }}</h4>
       <h4>Venue: {{ event_details.eventVenue }}</h4>
       <h4>Speaker: {{ event_details.eventSpeaker }}</h4>
-      <form action="" method="post">
-          {% csrf_token %}
-          {% if user.is_anonymous %}
-          <a href="/accounts/google/login">LOGIN TO REGISTER</a>
-          {% else %}
-          {% if is_stu_registered %}
-          <a href="{% url 'eventreg:eventLiveStream' pk=event_details.id %}"><h1><input type="button" id="live" value="gotolivestream"></h1></a>
-          {% else %}
-          <input id="register" type="submit" name="submit" value="REGISTER" />
-          {% endif %}
-          {% endif %}
-      </form>
+        {% if user.is_anonymous %}
+            <a href="/accounts/google/login">LOGIN TO REGISTER</a>
+        {% else %}
+            {% if is_stu_registered %}
+                {% if live %}
+                    <a href="{% url 'eventreg:eventLiveStream' pk=event_details.id %}"><h1><input type="button" id="live_button" value="gotolivestream"></h1></a>
+                {% else %}
+                    {% if over %}
+                        <p>Event Ended</p>
+                    {% else %}
+                        <h1><input type="button" id="live_button" value="live soon" disabled></h1>
+                    {%endif%}
+                {%endif%}
+            {%else%}
+                    {% if RegEndDate %}
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <input id="register" type="submit" name="submit" value="REGISTER" />
+                        </form>
+                    {%else%}
+                        {% if over %}
+                            <p>Event Ended</p>
+                        {% else %}
+                            <input id="register" type="submit" name="submit" value="REGISTER" disabled/>
+                        {%endif%}
+                    {% endif %}
+            {% endif %}
+        {% endif %}
+
+
     </div>
   </div>
 
