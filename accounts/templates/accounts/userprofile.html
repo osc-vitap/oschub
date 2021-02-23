@@ -4,7 +4,7 @@
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'accounts/css/profile.css' %}">
-<div class="profile">
+
   <div class="container">
     <h1>User Profile</h1>
   	<hr>
@@ -14,8 +14,8 @@
         <div class="text-center">
          <!-- <img src="//placehold.it/150" class="avatar img-circle" alt="avatar">-->
           <img src="{{user.socialaccount_set.all.0.get_avatar_url}}" class="avatar img-circle" alt="avatar">
-          <h6>Upload a different photo...</h6>
-          <input type="file" class="form-control">
+          <!--<h6>Upload a different photo...</h6>
+          <input type="file" class="form-control">-->
         </div>
       </div>
 
@@ -85,5 +85,5 @@
     </div>
     <hr>
   </div>
-</div>
+
 {% endblock content %}

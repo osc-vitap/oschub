@@ -2,9 +2,13 @@
   box-sizing: border-box;
 }*/
 
+body {
+  background: #242b2e;
+}
+
 .speakers {
-  /*background: #242b2e;*/
-  background: blue;
+  background: #242b2e;
+ /* background: blue;*/
   min-height: 100vh;
   padding: 0;
   margin: 0;

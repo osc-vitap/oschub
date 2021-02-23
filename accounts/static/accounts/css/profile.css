@@ -1,4 +1,4 @@
-.profile {
+.container, body {
     background-color: #242B2E;
 }
 
@@ -10,4 +10,9 @@ h1  {
   color: #f5f2f2;
   font-family: 'Inconsolata';
   font-style: italic;
+}
+
+.img-circle {
+  width: 180px;
+  height: 180px;
 }
