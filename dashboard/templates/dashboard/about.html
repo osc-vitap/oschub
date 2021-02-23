@@ -1,4 +1,8 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-    <h1>Just a little something about us</h1>
+ <link rel="stylesheet" href="{% static 'dashboard/css/about.css' %}">
+    <div class="about">
+        <h1>Just a little something about us</h1>
+    </div>
 {% endblock content %}

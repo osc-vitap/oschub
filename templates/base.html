@@ -3,7 +3,8 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+     <link rel="icon" href="{% static 'dashboard/images/ico.ico' %}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/style.css' %}">
@@ -15,7 +16,7 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -23,12 +24,11 @@
             <a class="navbar-brand title" href="/dashboard">OSCHub</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-              <li><a class="redir" href="{% url 'eventreg:eventList' %}">Events</a></li>
-              <li><a class="redir" href="#">LiveStreams</a></li>
-              <li><a class="redir" href="{% url 'dashboard:speakers' %}">Speakers</a></li>
-              <li><a class="redir" href="{% url 'dashboard:about' %}">About</a></li>
-              <li><a class="redir" href="{% url 'accounts:profile' %}">Profile</a></li>
+            <ul class="nav navbar-nav navbar-right ulitem">
+              <li class="nav-item"><a class="redir nav-link" href="{% url 'eventreg:eventList' %}">Events</a></li>
+              <li class="nav-item"><a class="redir nav-link" href="{% url 'dashboard:speakers' %}">Speakers</a></li>
+              <li class="nav-item"><a class="redir nav-link" href="{% url 'dashboard:about' %}">About</a></li>
+              <li class="nav-item"><a class="redir nav-link" href="{% url 'accounts:profile' %}">Profile</a></li>
             </ul>
         </div>
       </div>
@@ -45,7 +45,6 @@
             <h2>About Us</h2>
             <a>Mozilla Community Portal</a>
             <a>Community Participation Guidelines</a>
-            <a>EB Openings</a>
             <a>Gallery</a>
           </div>
           <div class='footer-a-items'>
@@ -63,8 +62,8 @@
           </div>
           <div class='footer-a-items'>
             <h2>Admin</h2>
-            <a>EB Login</a>
-            <a>EB Elections</a>
+            <a href="/admin">Login</a>
+            <a>oschub</a>
           </div>
         </div>
       </div>
