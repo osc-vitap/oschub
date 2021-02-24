@@ -5,5 +5,12 @@
     <div class="sp">
         <h1>Speaker Name</h1>
         <p>Information about a speaker</p>
+        {% for speaker in Speakers %}
+        <img class="eventLogo" src="{{speaker.get_speakerImage}}" alt="Photo of sunset" width="200" height="100">
+                <h4 class="item-card-title mt-3 mb-3">
+                    {{speaker.speakerName}}
+                </h4>
+                <p class="card-text">{{speaker.speakerProfession}}</p>
+        {% endfor %}
     </div>
 {% endblock %}
