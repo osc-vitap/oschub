@@ -7,7 +7,7 @@ import datetime
 class EventListView(ListView):
     context_object_name = 'events'
     model = Event
-
+    ordering = ['-eventDate']
 
 class EventDetailView(DetailView):
     context_object_name = 'event_details'
