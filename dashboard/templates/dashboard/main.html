@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
-
 {% block content %}
-    <div class="content-test">
-    </div>
+<br>
+        <p>upcoming</p>
+         {% for event in upcoming %}
+                <h4>{{event.eventName}}</h4>
+                <p class="card-text">{{event.eventCaption}}</p>
+          {% endfor %}
+
+        <p>current</p>
+          {% for event in current %}
+                <h4>{{event.eventName}} </h4>
+                <p class="card-text">{{event.eventCaption}}</p>
+          {% endfor %}
+
+        <p>past</p>
+          {% for event in past %}
+                <h4 > {{event.eventName}}  </h4>
+                <p class="card-text">{{event.eventCaption}}</p>
+          {% endfor %}
+
 {% endblock content %}
