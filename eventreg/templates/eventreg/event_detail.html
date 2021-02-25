@@ -23,25 +23,25 @@
         {% else %}
             {% if is_stu_registered %}
                 {% if live %}
-                    <a href="{% url 'eventreg:eventLiveStream' pk=event_details.id %}"><h1><input type="button" id="live_button" value="gotolivestream"></h1></a>
+                    <a href="{% url 'eventreg:eventLiveStream' pk=event_details.id %}"><h1><input type="button" id="live_button1" value="gotolivestream"></h1></a>
                 {% else %}
                     {% if over %}
                         <p>Event Ended</p>
                     {% else %}
-                        <h1><input type="button" id="live_button" value="live soon" disabled></h1>
+                        <h1><input type="button" id="live_button2" value="live soon" disabled></h1>
                     {%endif%}
                 {%endif%}
             {%else%}
                     {% if RegEndDate %}
                         <form action="" method="post">
                             {% csrf_token %}
-                            <input id="register" type="submit" name="submit" value="REGISTER" />
+                            <input id="register1" type="submit" name="submit" value="REGISTER" />
                         </form>
                     {%else%}
                         {% if over %}
                             <p>Event Ended</p>
                         {% else %}
-                            <input id="register" type="submit" name="submit" value="REGISTER" disabled/>
+                            <input id="register2" type="submit" name="submit" value="REGISTER" disabled/>
                         {%endif%}
                     {% endif %}
             {% endif %}
