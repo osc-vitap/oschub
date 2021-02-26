@@ -16,7 +16,7 @@ class EventDetailView(DetailView):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_anonymous:
-            return HttpResponseRedirect("/accounts/google/login/")
+            return HttpResponseRedirect("/")
         Quary1 = EventUserData.objects.filter(eventName=kwargs['pk'], studentEmail=request.user.email)
         Quary2 = Event.objects.get(**kwargs)
         self.object = self.get_object()
@@ -80,7 +80,7 @@ class LiveStreamView(DetailView):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_anonymous:
-            return HttpResponseRedirect("/accounts/google/login/")
+            return HttpResponseRedirect("/")
         Quary = EventUserData.objects.filter(eventName=kwargs['pk'], studentEmail=request.user.email)
         if len(Quary) > 0:
             if Quary[0].studentCheckedIn:
