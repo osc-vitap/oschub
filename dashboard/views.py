@@ -13,7 +13,7 @@ class DashboardView(TemplateView):
 
     def get(self, request, *args, **kwargs):
         if request.user.is_anonymous:
-            return HttpResponseRedirect("/accounts/google/login/")
+            return HttpResponseRedirect("/")
         Quary = EventUserData.objects.filter(studentEmail=request.user.email)
         upcoming=[]
         current=[]

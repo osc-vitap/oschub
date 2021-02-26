@@ -7,7 +7,7 @@ class Profile(TemplateView):
     template_name = 'accounts/userprofile.html'
     def get(self, request, *args, **kwargs):
         if request.user.is_anonymous:
-            return HttpResponseRedirect("/accounts/google/login/")
+            return HttpResponseRedirect("/")
 
         return render(request, self.template_name)
 
