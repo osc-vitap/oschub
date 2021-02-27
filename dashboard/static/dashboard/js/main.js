@@ -1,29 +1,77 @@
-/*
-	Directive by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+;(function () {
 
-(function($) {
+    'use strict';
 
-	var	$window = $(window),
-		$body = $('body');
+    var carousels = function() {
+        $(".owl-carousel1").owlCarousel(
+            {
+                loop:true,
+                center: true,
+                margin:0,
+                responsiveClass:true,
+                nav:false,
+                responsive:{
+                    0:{
+                        items:1,
+                        nav:false
+                    },
+                    600:{
+                        items:1,
+                        nav:false
+                    },
+                    1000:{
+                        items:3,
+                        nav:true,
+                        loop:false
+                    }
+                }
+            }
+        );
 
-	// Breakpoints.
-		breakpoints({
-			wide:      [ '1281px',  '1680px' ],
-			normal:    [ '981px',   '1280px' ],
-			narrow:    [ '841px',   '980px'  ],
-			narrower:  [ '737px',   '840px'  ],
-			mobile:    [ '481px',   '736px'  ],
-			mobilep:   [ null,      '480px'  ]
-		});
+        $(".owl-carousel2").owlCarousel(
+            {
+                loop:true,
+                center: false,
+                margin:0,
+                responsiveClass:true,
+                nav:true,
+                responsive:{
+                    0:{
+                        items:1,
+                        nav:false
+                    },
+                    600:{
+                        items:2,
+                        nav:false
+                    },
+                    1000:{
+                        items:3,
+                        nav:true,
+                        loop:true
+                    }
+                }
+            }
+        );
+    }
 
-	// Play initial animations on page load.
-		$window.on('load', function() {
-			window.setTimeout(function() {
-				$body.removeClass('is-preload');
-			}, 100);
-		});
 
-})(jQuery);
+    // svg responsive in mobile mode
+    var checkPosition = function() {
+        if ($(window).width() < 767) {
+            $("#bg-services").attr("viewBox", "0 0 1050 800");
+
+        }
+    };
+
+    (function($) {
+        carousels();
+        checkPosition();
+    })(jQuery);
+
+
+}());
+
+// menu toggle button
+function myFunction(x) {
+    x.classList.toggle("change");
+}

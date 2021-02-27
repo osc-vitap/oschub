@@ -18,7 +18,7 @@ h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,
 cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,
 sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,
 form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,
-aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,
+aside,canvas,details,embed,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,
 audio,video
 {
   margin: 0;
@@ -32,8 +32,6 @@ audio,video
 article,
 aside,
 details,
-figcaption,
-figure,
 footer,
 header,
 hgroup,
@@ -3282,4 +3280,70 @@ input[type="button"].small,
   #header br {
     display: none;
   }
+}
+
+
+#profile-container
+{
+  display: flex;
+  justify-content: space-between;
+  width: 900px;
+}
+
+@media screen and (max-width: 600px) {
+  #profile-container {
+    visibility: hidden;
+    clear: both;
+    float: left;
+    display: none;
+  }
+}
+
+#profile-container figure {
+  display: inline-block;
+  }
+
+#profile-container figure div {
+  border-radius: 50%;
+  overflow: hidden;
+  background-blend-mode: luminosity;
+  border: 5px solid #000;
+  width: 9rem; height: 9rem;
+  transition: .4s linear;
+  will-change: background-color;
+  margin: 5px;
+}
+
+#profile-container figure div:hover {
+  border: 8px solid #000;
+  background-color: transparent;
+}
+
+#profile-container figcaption {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.adi {
+  background: url(https://bit.ly/3bFoV6U) no-repeat center
+    hsl(200,50%,50%);
+  background-size: cover;
+}
+
+.sudhindra {
+  background: url(https://bit.ly/3bFoV6U) no-repeat center
+    hsl(200,50%,50%);
+  background-size: cover;
+}
+
+.bhargav {
+  background: url(https://bit.ly/3bFoV6U) no-repeat center
+    hsl(200,50%,50%);
+  background-size: cover;
+}
+
+.krishna {
+  background: url(https://bit.ly/3bFoV6U) no-repeat center
+    hsl(200,50%,50%);
+  background-size: cover;
 }
