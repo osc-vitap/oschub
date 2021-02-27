@@ -1,6 +1,5 @@
 from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView, ListView
-from django.views.generic.detail import SingleObjectMixin
 from dashboard.models import Speaker
 from eventreg.models import EventUserData, Event
 import datetime

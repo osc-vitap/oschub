@@ -85,4 +85,21 @@
     <hr>
   </div>
 </div>
+<div class="container">
+    <p><h1>total_events:{{total_events}}</h1></p>
+    <p><h3>event name and time</h3></p>
+         {% for event in events %}
+                <p><h3>eventName : {{event.eventName}} &emsp; eventDate : {{event.eventDate}}</h3></p>
+          {% endfor %}
+    <p><h1>total_events_attended:{{total_events_attended}}</h1></p>
+    <p><h3>event name and time</h3></p>
+         {% for event in events_attended %}
+                <p><h3>eventName : {{event.eventName}} &emsp; eventDate : {{event.eventDate}}</h3></p>
+          {% endfor %}
+    <p><h1>total_event_not_attended:{{total_event_not_attended}}</h1></p>
+    <p><h3>event name and time</h3></p>
+         {% for event in event_not_attended %}
+                <p><h3>eventName : {{event.eventName}} &emsp; eventDate : {{event.eventDate}}</h3></p>
+          {% endfor %}
+</div>
 {% endblock content %}
