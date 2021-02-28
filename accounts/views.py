@@ -38,6 +38,7 @@ class Profile(TemplateView):
         context["total_events"] = len(all)
         context["total_events_attended"] = len(attended)
         context["total_event_not_attended"] = len(not_attended)
+        context["user_regno"] = request.user.email.split(".")[1].split("@")[0].upper()
         return self.render_to_response(context)
 
 
