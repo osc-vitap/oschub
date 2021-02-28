@@ -89,7 +89,8 @@
          Get in touch with us Anytime! We'd love to hear from you...
         </p>
 
-        <form method="post" action="#" >
+        <form method="post" action="" >
+            {% csrf_token %}
           <div class="row" >
             <div class="col-6 col-12-mobilep" style="background-color: #5b5b5b;">
               <input type="text" name="name" placeholder="Name" />
@@ -131,7 +132,7 @@
 
          <figure>
             <div class="krishna"></div>
-            <figcaption>N. KrishnaRaj <br /> <em>Back End Developer</em> </figcaption>
+            <figcaption>N. Krishna Raj <br /> <em>Back End Developer</em> </figcaption>
         </figure>
       </div>
       </div>
