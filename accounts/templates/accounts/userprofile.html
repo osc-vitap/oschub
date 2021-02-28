@@ -44,7 +44,7 @@
               <input class="form-control" type="text" value="{{user_regno}}" readonly>
             </div>
           </div>
-
+            <!--
           <div class="form-group">
             <label class="col-lg-3 control-label">Branch:</label>
             <div class="col-lg-8">
@@ -78,7 +78,7 @@
               <input type="reset" class="btn btn-default" value="Cancel">
             </div>
           </div>
-
+            -->
         </form>
       </div>
     </div>
@@ -91,7 +91,7 @@
           <div class="example" >
               <h3>Events Registered but <br /> not Checked-in</h3>
               <div class="js-radial counter radial"
-                  data-finnish="80"
+                  data-finnish="{{stat1}}"
                   data-speed="26"
                   data-append="%"
                   data-color="#5EFB6E"
@@ -105,17 +105,20 @@
           <div class="example">
               <h3>Events Attended <br /> Successfully</h3>
               <div class="js-radial counter radial"
-                  data-finnish="70"
+                  data-finnish="{{stat2}}"
                   data-speed="26"
-                  data-countanim="false"
+                   data-append="%"
                   data-color="#7DFDFE">
-                  <div class="display"><span class="count">70</span><span class="decorator">%</span></div>
+                  <div class="display">
+                      <span class="count">0</span>
+                      <span class="decorator">%</span>
+                  </div>
               </div>
           </div>
           <div class="example">
               <h3>Events Unattended </h3><br />
               <div class="js-radial counter radial"
-                  data-finnish="30"
+                  data-finnish="{{stat3}}"
                   data-speed="26"
                   data-append="%"
                   data-color="#FF9999"
