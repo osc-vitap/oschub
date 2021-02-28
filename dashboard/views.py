@@ -15,7 +15,7 @@ class DashboardView(TemplateView):
     def get(self, request, *args, **kwargs):
         if request.user.is_anonymous:
             return HttpResponseRedirect("/")
-        Quary = EventUserData.objects.filter(studentEmail=request.user.email)
+        Quary = EventUserData.objects.filter(studentEmail=request.user.email).order_by('-eventName__eventDate')
         upcoming = []
         current = []
         past = []
@@ -34,6 +34,19 @@ class DashboardView(TemplateView):
         context["upcoming"] = upcoming
         context["current"] = current
         context["past"] = past
+        if len(upcoming) > 0:
+            context["no_of_upcoming"] = True
+        else:
+            context["no_of_upcoming"] = False
+        if len(current) > 0:
+            context["no_of_current"] = True
+        else:
+            context["no_of_current"] = False
+        if len(past) > 0:
+            context["no_of_past"] = True
+        else:
+            context["no_of_past"] = False
+
         return self.render_to_response(context)
 
 
