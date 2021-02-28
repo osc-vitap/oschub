@@ -1,23 +1,26 @@
-from django.views.generic import (ListView, DetailView)
+from django.views.generic import ListView, DetailView
 from django.http import HttpResponseRedirect
 from eventreg.models import EventUserData, Event
 import datetime
 
 
 class EventListView(ListView):
-    context_object_name = 'events'
+    context_object_name = "events"
     model = Event
-    ordering = ['-eventDate']
+    ordering = ["-eventDate"]
+
 
 class EventDetailView(DetailView):
-    context_object_name = 'event_details'
+    context_object_name = "event_details"
     model = Event
-    template_name = 'eventreg/event_detail.html'
+    template_name = "eventreg/event_detail.html"
 
     def get(self, request, *args, **kwargs):
         if request.user.is_anonymous:
             return HttpResponseRedirect("/")
-        Quary1 = EventUserData.objects.filter(eventName=kwargs['pk'], studentEmail=request.user.email)
+        Quary1 = EventUserData.objects.filter(
+            eventName=kwargs["pk"], studentEmail=request.user.email
+        )
         Quary2 = Event.objects.get(**kwargs)
         self.object = self.get_object()
         context = self.get_context_data(object=self.object)
@@ -31,7 +34,14 @@ class EventDetailView(DetailView):
         # for reg end date
         date = Quary2.eventRegEndDate
         time = Quary2.eventRegEndTime
-        event_datetime=datetime.datetime(year=date.year,month=date.month,day=date.day,hour=time.hour,minute=time.minute,second=time.second)
+        event_datetime = datetime.datetime(
+            year=date.year,
+            month=date.month,
+            day=date.day,
+            hour=time.hour,
+            minute=time.minute,
+            second=time.second,
+        )
 
         if event_datetime < datetime.datetime.now():
             context["RegEndDate"] = False
@@ -41,7 +51,7 @@ class EventDetailView(DetailView):
         # for live stream date
         date = Quary2.eventDate
         start_time = Quary2.eventStartTime
-        end_time=Quary2.eventEndTime
+        end_time = Quary2.eventEndTime
 
         if date == datetime.date.today():
             if start_time < datetime.datetime.now().time() < end_time:
@@ -61,16 +71,20 @@ class EventDetailView(DetailView):
     def post(self, request, *args, **kwargs):
         user_name = request.user.first_name.title()
         user_email = request.user.email
-        user_reg = user_email.split('.')[1].split('@')[0].upper()
-        Quary = EventUserData.objects.filter(eventName=kwargs['pk'], studentEmail=request.user.email)
+        user_reg = user_email.split(".")[1].split("@")[0].upper()
+        Quary = EventUserData.objects.filter(
+            eventName=kwargs["pk"], studentEmail=request.user.email
+        )
         if len(Quary) == 0:
-            eventdata_instance = EventUserData.objects.create(eventName=Event.objects.get(**kwargs),
-                                                              studentName=user_name,
-                                                              studentReg=user_reg,
-                                                              studentEmail=user_email,
-                                                              studentRegistered=True,
-                                                              studentCheckedIn=False)
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+            eventdata_instance = EventUserData.objects.create(
+                eventName=Event.objects.get(**kwargs),
+                studentName=user_name,
+                studentReg=user_reg,
+                studentEmail=user_email,
+                studentRegistered=True,
+                studentCheckedIn=False,
+            )
+        return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))
 
 
 class LiveStreamView(DetailView):
@@ -81,7 +95,9 @@ class LiveStreamView(DetailView):
     def get(self, request, *args, **kwargs):
         if request.user.is_anonymous:
             return HttpResponseRedirect("/")
-        Quary = EventUserData.objects.filter(eventName=kwargs['pk'], studentEmail=request.user.email)
+        Quary = EventUserData.objects.filter(
+            eventName=kwargs["pk"], studentEmail=request.user.email
+        )
         if len(Quary) > 0:
             if Quary[0].studentCheckedIn:
                 Flag = True
@@ -95,5 +111,7 @@ class LiveStreamView(DetailView):
         return self.render_to_response(context)
 
     def post(self, request, *args, **kwargs):
-        EventUserData.objects.filter(eventName=kwargs['pk'], studentEmail=request.user.email).update(studentCheckedIn=True)
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        EventUserData.objects.filter(
+            eventName=kwargs["pk"], studentEmail=request.user.email
+        ).update(studentCheckedIn=True)
+        return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))

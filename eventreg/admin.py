@@ -3,13 +3,19 @@ from .models import Event, EventUserData
 
 
 class EventAdmin(admin.ModelAdmin):
-    search_fields = ['eventName']
-    list_display = ['eventName', 'eventDate', 'eventStartTime', 'eventEndTime', 'eventSpeaker']
+    search_fields = ["eventName"]
+    list_display = [
+        "eventName",
+        "eventDate",
+        "eventStartTime",
+        "eventEndTime",
+        "eventSpeaker",
+    ]
 
 
 class EventDataAdmin(admin.ModelAdmin):
-    search_fields = ['eventName', 'studentName', 'studentReg', 'studentEmail']
-    list_display = ['eventName', 'studentReg', 'studentName']
+    search_fields = ["eventName", "studentName", "studentReg", "studentEmail"]
+    list_display = ["eventName", "studentReg", "studentName"]
 
 
 admin.site.register(Event, EventAdmin)

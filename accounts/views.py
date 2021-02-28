@@ -3,8 +3,9 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from eventreg.models import EventUserData, Event
 
+
 class Profile(TemplateView):
-    template_name = 'accounts/userprofile.html'
+    template_name = "accounts/userprofile.html"
 
     def get_object(self):
         return self
@@ -22,11 +23,15 @@ class Profile(TemplateView):
         not_attended = []
         for i in Quary1:
             Quary2 = Event.objects.get(eventName=i.eventName)
-            all.append({"eventName":i.eventName,"eventDate":Quary2.eventDate})
+            all.append({"eventName": i.eventName, "eventDate": Quary2.eventDate})
             if i.studentCheckedIn:
-                attended.append({"eventName":i.eventName,"eventDate":Quary2.eventDate})
+                attended.append(
+                    {"eventName": i.eventName, "eventDate": Quary2.eventDate}
+                )
             else:
-                not_attended.append({"eventName":i.eventName,"eventDate":Quary2.eventDate})
+                not_attended.append(
+                    {"eventName": i.eventName, "eventDate": Quary2.eventDate}
+                )
         context["events"] = all
         context["events_attended"] = attended
         context["event_not_attended"] = not_attended
@@ -35,7 +40,6 @@ class Profile(TemplateView):
         context["total_event_not_attended"] = len(not_attended)
         return self.render_to_response(context)
 
+
 class Login(TemplateView):
-    template_name = 'accounts/login.html'
-
-
+    template_name = "accounts/login.html"

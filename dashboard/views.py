@@ -4,6 +4,7 @@ from dashboard.models import Speaker
 from eventreg.models import EventUserData, Event
 import datetime
 
+
 class DashboardView(TemplateView):
     template_name = "dashboard/main.html"
 
@@ -14,12 +15,12 @@ class DashboardView(TemplateView):
         if request.user.is_anonymous:
             return HttpResponseRedirect("/")
         Quary = EventUserData.objects.filter(studentEmail=request.user.email)
-        upcoming=[]
-        current=[]
-        past=[]
+        upcoming = []
+        current = []
+        past = []
         if len(Quary) > 0:
             for i in Quary:
-                Quary1=Event.objects.get(eventName=i.eventName)
+                Quary1 = Event.objects.get(eventName=i.eventName)
                 if Quary1.eventDate > datetime.date.today():
                     upcoming.append(Quary1)
                 elif Quary1.eventDate < datetime.date.today():
@@ -34,10 +35,12 @@ class DashboardView(TemplateView):
         context["past"] = past
         return self.render_to_response(context)
 
+
 class SpeakerView(ListView):
     template_name = "dashboard/speakers.html"
-    context_object_name = 'Speakers'
+    context_object_name = "Speakers"
     model = Speaker
+
 
 class AboutView(TemplateView):
     template_name = "dashboard/about.html"
