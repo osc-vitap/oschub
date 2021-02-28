@@ -11,42 +11,54 @@
   <link rel="stylesheet" href="{% static 'eventreg/css/eventDetail.css' %}">
 
   <div class="container top">
-      <div class="col-sm-7">
-        <img
-          id="eventpic"
-          src="{{event_details.eventLogo}}"
-        />
-      </div>
-      <div class="col-sm-4 col-sm-offset-1" id="details">
-        <h1>{{ event_details.eventName }}</h1>
-        <h4>On {{ event_details.eventDate }}</h4>
-        <h4>TIME: {{ event_details.eventStartTime }}</h4>
-        <h4>Venue: {{ event_details.eventVenue }}</h4>
-        <h4>Speaker: {{ event_details.eventSpeaker }}</h4>
-        <form action="" method="post">
-            {% csrf_token %}
-            <input type="hidden" name="eventname" value="{{event_details.eventName}}">
-            <input id="register" type="submit" name="submit" value="REGISTER" />
-        </form>
-      </div>
+    <div class="col-sm-7">
+      <img
+        id="eventpic"
+        src="{{event_details.get_eventLogo}}"
+      />
     </div>
-    <div class="container down">
-      <div class="col-sm-10" id="about">
-        <u>About Event</u>
-        <br/>
-        <br/>
-       <!-- <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
-        </p>-->
-        <p id="description">{{ event_details.eventDescription }}</p>
-      </div>
+    <div class="col-sm-4 col-sm-offset-1" id="details">
+      <h1>{{ event_details.eventName }}</h1>
+      <h4>On {{ event_details.eventDate }}</h4>
+      <h4>TIME: {{ event_details.eventStartTime }}</h4>
+      <h4>Venue: {{ event_details.eventVenue }}</h4>
+      <h4>Speaker: {{ event_details.eventSpeaker }}</h4>
+        {% if user.is_anonymous %}
+            <a href="/accounts/google/login">LOGIN TO REGISTER</a>
+        {% else %}
+            {% if is_stu_registered %}
+                {% if live %}
+                    <a href="{% url 'eventreg:eventLiveStream' pk=event_details.id %}"><h1><input type="button" id="live_button1" value="gotolivestream"></h1></a>
+                {% else %}
+                    {% if over %}
+                        <p>Event Ended</p>
+                    {% else %}
+                        <h1><input type="button" id="live_button2" value="live soon" disabled></h1>
+                    {%endif%}
+                {%endif%}
+            {%else%}
+                    {% if RegEndDate %}
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <input id="register1" type="submit" name="submit" value="REGISTER" />
+                        </form>
+                    {%else%}
+                        {% if over %}
+                            <p>Event Ended</p>
+                        {% else %}
+                            <input id="register2" type="submit" name="submit" value="REGISTER" disabled/>
+                        {%endif%}
+                    {% endif %}
+            {% endif %}
+        {% endif %}
     </div>
+  </div>
+
+  <div class="container down">
+    <div class="col-sm-10" id="about">
+      <u>About Event</u>
+      <br/>
+      <p>{{ event_details.eventDescription }}</p>
+    </div>
+  </div>
 {% endblock content %}
