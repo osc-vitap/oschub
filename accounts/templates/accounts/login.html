@@ -8,9 +8,13 @@
     <title>OSCHub | Login</title>
 {% block content %}
     <title>OSCHub | Login</title>
+
+    {% block head-css %}
     <link rel="stylesheet" href="{% static 'accounts/css/login.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    {% endblock head-css %}
+
      <!-- LOGIN MODULE -->
     <div class="login">
         <div class="wrap">
@@ -46,8 +50,8 @@
                 <div class="form-wrap">
                     <!-- TABS -->
                     <div class="tabs">
-                        <h3 class="login-tab"><a class="log-in active" href="#login-tab-content"><span>Login<span></a></h3>
-                        <h3 class="signup-tab"><a class="sign-up" href="#signup-tab-content"><span>About OSCHub</span></a></h3>
+                        <h3 class="login-tab"><a class="log-in active" href="#login-tab-content" style="text-decoration:none;"><span>Login<span></a></h3>
+                        <h3 class="signup-tab"><a class="sign-up" href="#signup-tab-content" style="text-decoration:none;"><span>About OSCHub</span></a></h3>
                     </div>
                     <!-- TABS CONTENT -->
                     <div class="tabs-content">
@@ -76,7 +80,7 @@
                                 </p>
                             </form>
                             <div class="help-action">
-                                <center><p><a class="agree" href="#">Developed by OSC VIT-AP</a></p></center>
+                                <center><p><a class="agree" href="#" style="border:none;text-decoration:none;">Developed by OSC VIT-AP</a></p></center>
                             </div>
                         </div>
                     </div>

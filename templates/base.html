@@ -3,12 +3,14 @@
 <html lang="en">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    {% block head-css %}
      <link rel="icon" href="{% static 'dashboard/images/ico.ico' %}" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'dashboard/css/footer.css' %}">
+    {% endblock head-css %}
     <title>Dashboard</title>
 </head>
 <body>
@@ -29,62 +31,72 @@
               <li class="nav-item"><a class="redir nav-link" href="{% url 'dashboard:speakers' %}">Speakers</a></li>
               <li class="nav-item"><a class="redir nav-link" href="{% url 'dashboard:about' %}">About</a></li>
               <li class="nav-item"><a class="redir nav-link" href="{% url 'accounts:profile' %}">Profile</a></li>
+                <!-- LOGIN button will be replaced here, if user is not logged in -->
+                <!--<li class="nav-item"><a class="redir nav-link" href="/dashboard">LOGIN</a></li>-->
+              <li class="nav-item"><a class="redir nav-link" href="/accounts/logout">Logout</a></li>
             </ul>
         </div>
       </div>
     </nav>
   </div>
 
+  <section>
     {% block content %}
     {% endblock content %}
+  </section>
 
-    <div class='footer-container'>
-      <div class='footer-a'>
-        <div class='footer-a-wrapper'>
-          <div class='footer-a-items'>
-            <h2>About Us</h2>
-            <a>Mozilla Community Portal</a>
-            <a>Community Participation Guidelines</a>
-            <a>Gallery</a>
+  {% block footer %}
+      <footer>
+        <div class='footer-container'>
+          <div class='footer-a'>
+            <div class='footer-a-wrapper'>
+              <div class='footer-a-items'>
+                <h2>About Us</h2>
+                <a>Mozilla Community Portal</a>
+                <a>Community Participation Guidelines</a>
+                <a>Gallery</a>
+              </div>
+              <div class='footer-a-items'>
+                <h2>Contact Us</h2>
+                <a>Contact</a>
+                <a>GitHub Organization</a>
+                <a>Sponsorships</a>
+              </div>
+            </div>
+            <div class='footer-a-wrapper'>
+              <div class='footer-a-items'>
+                <h2>Videos</h2>
+                <a>Tech Cast Series</a>
+                <a>Hacktoberfest 2020</a>
+              </div>
+              <div class='footer-a-items'>
+                <h2>Admin</h2>
+                <a href="/admin">Login</a>
+                <a>oschub</a>
+              </div>
+            </div>
           </div>
-          <div class='footer-a-items'>
-            <h2>Contact Us</h2>
-            <a>Contact</a>
-            <a>GitHub Organization</a>
-            <a>Sponsorships</a>
-          </div>
+          <section class='social-media'>
+            <div class='social-media-wrap'>
+              <div class='footer-logo'>
+                <a href='' class='social-logo'>
+                    <img class="img" src="{% static '/dashboard/images/osclogo.png' %}" alt="osclogo" width="240" height="60"/>
+                </a>
+              </div>
+              <small class='website-rights'>Open Source Community: VIT-AP © 2020</small>
+              <div class='social-icons'>
+                <a class="social-icon-a"><i aria-hidden="true" class="fa fa-facebook" data-toggle="tooltip" title="Facebook"></i></a>
+                <a class="social-icon-a"><i aria-hidden="true" class="fa fa-instagram" data-toggle="tooltip" title="Instagram"></i></a>
+                <a class="social-icon-a"><i aria-hidden="true" class="fa fa-youtube" data-toggle="tooltip" title="Youtube"></i></a>
+                <a class="social-icon-a"><i aria-hidden="true" class="fa fa-linkedin" data-toggle="tooltip" title="LinkedIN"></i></a>
+                <a class="social-icon-a"><i aria-hidden="true" class="fa fa-github" data-toggle="tooltip" title="GitHub"></i></a>
+              </div>
+            </div>
+          </section>
         </div>
-        <div class='footer-a-wrapper'>
-          <div class='footer-a-items'>
-            <h2>Videos</h2>
-            <a>Tech Cast Series</a>
-            <a>Hacktoberfest 2020</a>
-          </div>
-          <div class='footer-a-items'>
-            <h2>Admin</h2>
-            <a href="/admin">Login</a>
-            <a>oschub</a>
-          </div>
-        </div>
-      </div>
-      <section class='social-media'>
-        <div class='social-media-wrap'>
-          <div class='footer-logo'>
-            <a href='' class='social-logo'>
-                <img class="img" src="{% static '/dashboard/images/osclogo.png' %}" alt="osclogo" width="240" height="60"/>
-            </a>
-          </div>
-          <small class='website-rights'>Open Source Community: VIT-AP © 2020</small>
-          <div class='social-icons'>
-            <a class="social-icon-a"><i aria-hidden="true" class="fa fa-facebook" data-toggle="tooltip" title="Facebook"></i></a>
-            <a class="social-icon-a"><i aria-hidden="true" class="fa fa-instagram" data-toggle="tooltip" title="Instagram"></i></a>
-            <a class="social-icon-a"><i aria-hidden="true" class="fa fa-youtube" data-toggle="tooltip" title="Youtube"></i></a>
-            <a class="social-icon-a"><i aria-hidden="true" class="fa fa-linkedin" data-toggle="tooltip" title="LinkedIN"></i></a>
-            <a class="social-icon-a"><i aria-hidden="true" class="fa fa-github" data-toggle="tooltip" title="GitHub"></i></a>
-          </div>
-        </div>
-      </section>
-    </div>
+      </footer>
+  {% endblock footer %}
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
