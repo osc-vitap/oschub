@@ -1,19 +1,42 @@
 {% extends 'eventreg/livestream_base.html' %}
+{% load static %}
+
 {% block livestream_block %}
-    <iframe width="496" height="279" src="{{event.get_eventurl}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container videostream">
+    <div class="video-container">
+        <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/sNKD014uRj1"
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+    </div>
+</div>
 {% endblock livestream_block %}
+
+
 {% block body_block %}
-    <h1>{{ event.eventName }}</h1>
-    <h2>{{ event.eventSpeaker }}</h2>
-    <p>{{ event.eventDescription }}</p>
-    <p>{{is_stu_checkedIn}}</p>
-    {% if is_stu_checkedIn %}
-    <p>attended</p>
-    {% else %}
-     <form action="" method="post">
-        {% csrf_token %}
-    <input id="register" type="submit" name="submit" value="Checkin" />
-    </form>
-    {% endif %}
-    <a href="{{ event.eventDocumentation }}">Documentation</a>
+    <div class="container ">
+        <div class="row justify-content-center">
+            <div class="col-xs-6 col-md-6 col-lg-6 col-lg-offset-4 col-xs-offset-2">
+                <form action="" method="">
+                    {% csrf_token %}
+                    <a href="#">
+                        <input id="checkin" type="submit" name="check-in" value="Check-in" />
+                    </a>
+                    <a href="{{ event.eventDocumentation }}">
+                        <input id="documentation" type="submit" name="documentation" value="Documentation" />
+                    </a>
+                </form>
+            </div>
+        </div>
+        <div class="container down">
+      <div class="col-sm-12" id="about">
+        <u>About Event</u>
+        <br/>
+        <br/>
+        <p id="description">{{ event.eventDescription }}</p>
+      </div>
+    </div>
+   </div>
 {% endblock %}
