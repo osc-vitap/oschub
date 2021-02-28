@@ -16,10 +16,19 @@ class Event(models.Model):
     eventSpeaker = models.TextField(editable=True)  # Speakers in the Event
     eventURL = models.URLField(editable=True)  # Event Livestream URL link
     eventDocumentation = models.URLField(editable=True, default='')  # Event Documentation URL link
-    eventLogo = models.URLField(editable=True, default="https://drive.google.com/uc?export=view&id=1hl6Xt2cnUMC5RUrmXH6w-kQD8fhuF3rC")
+    eventLogo = models.URLField(
+        editable=True,
+        default="https://drive.google.com/file/d/1hl6Xt2cnUMC5RUrmXH6w-kQD8fhuF3rC/view?usp=sharing"
+    )
 
     def get_absolute_url(self):
         return reverse("eventreg:detail", kwargs={"pk": self.pk})
+
+    def get_eventLogo(self):
+        return "https://drive.google.com/uc?export=view&id={}".format(str(self.eventLogo.split('/')[5]))
+
+    def get_eventurl(self):
+        return "https://www.youtube.com/embed/{}".format(str(self.eventURL.split('=')[1]))
 
     def __str__(self):
         return str(self.eventName)
