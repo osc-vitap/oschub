@@ -105,7 +105,7 @@ def updateData():
     for event in eventlist:
         studentList = []
         if event in sheetList:
-            pass
+            print(f"[!] Skipping the Sheet, the worksheet {event} already exists !!")
         else:
             students = EventUserData.objects.filter(eventName__eventName=event)
             for student in students:
