@@ -93,7 +93,6 @@ SOCIALACCOUNT_PROVIDERS = {
     }
 }
 
-
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
@@ -149,3 +148,10 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 ACCOUNT_LOGOUT_REDIRECT_URL = "/dashboard/"
 LOGIN_REDIRECT_URL = "/dashboard/"
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.getenv('USER_EMAIL')
+EMAIL_HOST_PASSWORD = os.getenv('USER_PASS')
