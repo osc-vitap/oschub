@@ -9,27 +9,25 @@
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
     <div class="eventList">
 
-    <div class="container mt-2">
-      <div class="row">
-
+      <div class="container mt-2">
+        <div class="row">
           {% for event in events %}
-        <div class="col-md-3 col-sm-6 item">
-        <a href="{% url 'eventreg:eventDetails' pk=event.pk %}">
-          <div class="card item-card card-block">
-            <h4 class="card-title text-right"><i class="material-icons">event</i></h4>
-            <img class="eventLogo" src="/media/{{event.eventLogo}}" alt="Photo of sunset">
-            <h4 class="item-card-title mt-3 mb-3">
-                <!--<a href="{% url 'eventreg:eventDetails' pk=event.pk %}">{{event.eventName}}</a>-->
-                {{event.eventName}}
-            </h4>
-            <p class="card-text" id="caption">{{event.eventCaption}}</p>
-          </div>
-        </a>
-        </div>
+            <div class="col-md-3 col-sm-6 item">
+              <a href="{% url 'eventreg:eventDetails' pk=event.pk %}">
+                <div class="card item-card card-block">
+                  <h4 class="card-title text-right"><i class="material-icons">event</i></h4>
+                  <img class="eventLogo" src="/media/{{event.eventLogo}}" alt="Photo of sunset">
+                  <h4 class="item-card-title mt-3 mb-3">
+                      <!--<a href="{% url 'eventreg:eventDetails' pk=event.pk %}">{{event.eventName}}</a>-->
+                      {{event.eventName}}
+                  </h4>
+                  <p class="card-text" id="caption">{{event.eventCaption}}</p>
+                </div>
+              </a>
+            </div>
           {% endfor %}
-
+        </div>
       </div>
     </div>
-        </div>
 
 {% endblock content %}

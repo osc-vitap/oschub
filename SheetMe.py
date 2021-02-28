@@ -9,6 +9,7 @@ django.setup()
 import gspread
 from google.oauth2 import service_account
 from eventreg.models import EventUserData, Event
+from accounts.models import MailList
 import datetime
 
 
@@ -23,7 +24,7 @@ def createSpreadSheet(mailList, title='NewSpreadsheet'):
                 if index == 0:
                     sheet.share(emailid, perm_type='user', role='owner')
                 else:
-                    sheet.share(emailid, perm_type='user', role='writer', notify=False)
+                    sheet.share(emailid, perm_type='user', role='writer', notify=True)
                 print('Shared sheet to ' + emailid)
             createdNewSpreadSheet = True
     except gspread.exceptions.APIError:
@@ -58,7 +59,7 @@ def createSheet(title='EventName', row='10000', col='25'):
         createSheet(title)
 
 
-def updateData():
+def getCompletedEvents():
     # Filtering out the events that are over
     events = Event.objects.all().filter(eventDate__lt=datetime.date.today())  # gets the events with date before today
     eventlist = []
@@ -68,7 +69,12 @@ def updateData():
         eventEndTime__lt=datetime.datetime.now().strftime('%H:%M:%S'))
     for event in events:
         eventlist.append(event.eventName)
+    return eventlist
 
+
+def updateData():
+    admin_mail_latest = getAdminMail()
+    eventlist = getCompletedEvents()
     # If spreadsheet not found then make a new one
     try:
         sheet = service.open('Events')
@@ -79,11 +85,9 @@ def updateData():
     sheet = service.open('Events')
 
     #  sharing the sheet once again to share the file with newly added user
-    for index, emailid in enumerate(admin_mail):
-        if index == 0:
-            pass  # not adding the owner again to fix the spamming of notifications
-        else:
-            sheet.share(emailid, perm_type='user', role='writer', notify=False)
+    for emailid in admin_mail_latest:
+        if emailid not in admin_mail:
+            sheet.share(emailid, perm_type='user', role='writer', notify=True)
             print('Shared sheet to ' + emailid)
 
     #  get all the available worksheets
@@ -108,10 +112,18 @@ def updateData():
             print('[x] Added sample data set to sheet ' + event)
 
 
+def getAdminMail():
+    admin_mail = []
+    mailList = MailList.objects.all()
+    for mail in mailList:
+        admin_mail.append(mail.email)
+
+    return admin_mail
+
+
 # CAUTION: First Email is given owner access, rest all emails are given writer access due to API restrictions.
-admin_mail = ['kodetester.gsheets@gmail.com',
-              'krishna.19bce7357@vitap.ac.in']  # add all the admin emails to share the sheet with them
 createdNewSpreadSheet = False
+admin_mail = getAdminMail()
 SCOPE = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/spreadsheets',
          "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
 credential = service_account.Credentials.from_service_account_file('credentials.json', scopes=SCOPE)
