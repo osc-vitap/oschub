@@ -30,7 +30,7 @@
 
         $(".owl-carousel2").owlCarousel(
             {
-                loop:true,
+                loop:false,
                 center: false,
                 margin:0,
                 responsiveClass:true,
@@ -47,7 +47,7 @@
                     1000:{
                         items:3,
                         nav:true,
-                        loop:true
+                        loop:false
                     }
                 }
             }

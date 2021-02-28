@@ -195,266 +195,149 @@
         </div>
       </div>
     </div>
-
-    <!-- --------------------------------upcoming events block------------- -->
+    <!-- --------------------------------current events block------------- -->
     <div class="container-fluid gtco-news" id="news" style="margin-top: 200px;">
       <div class="container">
-        <h2>Upcoming Events</h2>
-        <div class="owl-carousel owl-carousel2 owl-theme">
+        <h2>Current Events</h2>
+          {% if no_of_current %}
+          <div class="owl-carousel owl-carousel2 owl-theme">
+          {% for event in current %}
           <div>
             <div class="card text-center">
               <img
                 class="card-img-top"
-                src="https://bit.ly/3q4Cfa2"
+                src="{{event.get_eventLogo}}"
                 alt="eventPoster"
                 width="280"
                 height="280"
               />
               <div class="card-body text-left pr-0 pl-0">
-                <h5>Linux Series</h5>
+                <h5>{{event.eventName}}</h5>
                 <p class="card-text">
-                  Donec non sem mi. In hac habitasse platea dictumst. Nullam a
-                  feugiat augue, et porta metus. Nulla mollis lobortis leet.
-                  Maecenas tincidunt, arcu sed ornare purus risus . . .
+                  {{event.eventCaption}}
                 </p>
-                <a href="#"
+                <a href="{% url 'eventreg:eventDetails' pk=event.pk %}"
                   >EXPLORE <i class="fa fa-angle-right" aria-hidden="true"></i
                 ></a>
               </div>
             </div>
           </div>
-          <div>
-            <div class="card text-center">
-              <img
-                class="card-img-top"
-                src="https://bit.ly/3kxzg98"
-                alt="eventPoster"
-                width="280"
-                height="280"
-              />
-              <div class="card-body text-left pr-0 pl-0">
-                <h5>MLH Local Hack Day</h5>
-                <p class="card-text">
-                  Donec non sem mi. In hac habitasse platea dictumst. Nullam a
-                  feugiat augue, et porta metus. Nulla mollis lobortis leet.
-                  Maecenas tincidunt, arcu sed ornare purus risus . . .
-                </p>
-                <a href="#"
-                  >EXPLORE <i class="fa fa-angle-right" aria-hidden="true"></i
-                ></a>
-              </div>
+          {% endfor %}
             </div>
-          </div>
-          <div>
-            <div class="card text-center">
-              <img
-                class="card-img-top"
-                src="https://bit.ly/3sy35ZY"
-                alt="eventPoster"
-                width="280"
-                height="280"
-              />
-              <div class="card-body text-left pr-0 pl-0">
-                <h5>Flutter WorkShop series</h5>
-                <p class="card-text">
-                  Donec non sem mi. In hac habitasse platea dictumst. Nullam a
-                  feugiat augue, et porta metus. Nulla mollis lobortis leet.
-                  Maecenas tincidunt, arcu sed ornare purus risus . . .
-                </p>
-                <a href="#"
-                  >EXPLORE <i class="fa fa-angle-right" aria-hidden="true"></i
-                ></a>
-              </div>
+          {% else %}
+          <center>
+            <div class="owl-carousel owl-carousel2 owl-theme">
+               <div class="card text-center">
+                   <div class="card-body text-center">
+                       <h5>You haven't Registered <br/>any Event yet!</h5>
+                          <p class="card-text">
+                        </p>
+                          <a href="/eventreg/eventList/">
+                              Go to Events
+                             <i class="fa fa-angle-right" aria-hidden="true"></i>
+                          </a>
+                     </div>
+                </div>
             </div>
-          </div>
-          <div>
-            <div class="card text-center">
-              <img
-                class="card-img-top"
-                src="https://bit.ly/3sy35ZY"
-                alt="eventPoster"
-                width="280"
-                height="280"
-              />
-              <div class="card-body text-left pr-0 pl-0">
-                <h5>Hacktoberfest</h5>
-                <p class="card-text">
-                  Donec non sem mi. In hac habitasse platea dictumst. Nullam a
-                  feugiat augue, et porta metus. Nulla mollis lobortis leet.
-                  Maecenas tincidunt, arcu sed ornare purus risus . . .
-                </p>
-                <a href="#"
-                  >EXPLORE <i class="fa fa-angle-right" aria-hidden="true"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="card text-center">
-              <img
-                class="card-img-top"
-                src="https://bit.ly/3sy35ZY"
-                alt="eventPoster"
-                width="280"
-                height="280"
-              />
-              <div class="card-body text-left pr-0 pl-0">
-                <h5>Hacktoberfest</h5>
-                <p class="card-text">
-                  Donec non sem mi. In hac habitasse platea dictumst. Nullam a
-                  feugiat augue, et porta metus. Nulla mollis lobortis leet.
-                  Maecenas tincidunt, arcu sed ornare purus risus . . .
-                </p>
-                <a href="#"
-                  >EXPLORE <i class="fa fa-angle-right" aria-hidden="true"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="card text-center">
-              <img
-                class="card-img-top"
-                src="https://bit.ly/3sy35ZY"
-                alt="eventPoster"
-                width="280"
-                height="280"
-              />
-              <div class="card-body text-left pr-0 pl-0">
-                <h5>Hacktoberfest</h5>
-                <p class="card-text">
-                  Donec non sem mi. In hac habitasse platea dictumst. Nullam a
-                  feugiat augue, et porta metus. Nulla mollis lobortis leet.
-                  Maecenas tincidunt, arcu sed ornare purus risus . . .
-                </p>
-                <a href="#"
-                  >EXPLORE <i class="fa fa-angle-right" aria-hidden="true"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-        </div>
+            </center>
+          {% endif %}
       </div>
     </div>
-
-
-
+    <!-- --------------------------------upcoming events block------------- -->
+    <div class="container-fluid gtco-news" id="news" >
+      <div class="container">
+        <h2>UpComing Events</h2>
+        {% if no_of_upcoming %}
+        <div class="owl-carousel owl-carousel2 owl-theme">
+          {% for event in upcoming  %}
+          <div>
+            <div class="card text-center">
+              <img
+                class="card-img-top"
+                src="{{event.get_eventLogo}}"
+                alt="eventPoster"
+                width="280"
+                height="280"
+              />
+              <div class="card-body text-left pr-0 pl-0">
+                <h5>{{event.eventName}}</h5>
+                <p class="card-text">
+                  {{event.eventCaption}}
+                </p>
+                <a href="{% url 'eventreg:eventDetails' pk=event.pk %}"
+                  >EXPLORE <i class="fa fa-angle-right" aria-hidden="true"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+          </div>
+          {% else %}
+          <center>
+            <div class="owl-carousel owl-carousel2 owl-theme">
+               <div class="card text-center">
+                   <div class="card-body text-center">
+                       <h5>You haven't Registered <br/>any Event yet!</h5>
+                          <p class="card-text">
+                        </p>
+                          <a href="/eventreg/eventList/">
+                              Go to Events
+                             <i class="fa fa-angle-right" aria-hidden="true"></i>
+                          </a>
+                     </div>
+                </div>
+            </div>
+            </center>
+          {% endif %}
+        </div>
+      </div>
+  </div>
 <!-- -----------------Past events block------------- -->
     <div class="container-fluid gtco-news" id="news" style="margin-bottom: 80px;">
       <div class="container">
         <h2>Past Events</h2>
-        <div class="owl-carousel owl-carousel2 owl-theme">
+          {% if no_of_past %}
+          <div class="owl-carousel owl-carousel2 owl-theme">
+          {% for event in past   %}
           <div>
             <div class="card text-center">
               <img
                 class="card-img-top"
-                src="https://bit.ly/3q4Cfa2"
+                src="{{event.get_eventLogo}}"
                 alt="eventPoster"
                 width="280"
                 height="280"
               />
               <div class="card-body text-left pr-0 pl-0">
-                <h5>Linux Series</h5>
+                <h5>{{event.eventName}}</h5>
                 <p class="card-text">
-                  Donec non sem mi. In hac habitasse platea dictumst. Nullam a
-                  feugiat augue, et porta metus. Nulla mollis lobortis leet.
-                  Maecenas tincidunt, arcu sed ornare purus risus . . .
+                  {{event.eventCaption}}
                 </p>
-                <a href="#"
+                <a href="{% url 'eventreg:eventDetails' pk=event.pk %}"
                   >EXPLORE <i class="fa fa-angle-right" aria-hidden="true"></i
                 ></a>
               </div>
             </div>
           </div>
-          <div>
-            <div class="card text-center">
-              <img
-                class="card-img-top"
-                src="https://bit.ly/3kxzg98"
-                alt="eventPoster"
-                width="280"
-                height="280"
-              />
-              <div class="card-body text-left pr-0 pl-0">
-                <h5>MLH Local Hack Day</h5>
-                <p class="card-text">
-                  Donec non sem mi. In hac habitasse platea dictumst. Nullam a
-                  feugiat augue, et porta metus. Nulla mollis lobortis leet.
-                  Maecenas tincidunt, arcu sed ornare purus risus . . .
-                </p>
-                <a href="#"
-                  >EXPLORE <i class="fa fa-angle-right" aria-hidden="true"></i
-                ></a>
-              </div>
+          {% endfor %}
+             </div>
+          {% else %}
+          <center>
+            <div class="owl-carousel owl-carousel2 owl-theme">
+               <div class="card text-center">
+                   <div class="card-body text-center">
+                       <h5>You haven't Registered <br/>any Event yet!</h5>
+                          <p class="card-text">
+                        </p>
+                          <a href="/eventreg/eventList/">
+                              Go to Events
+                             <i class="fa fa-angle-right" aria-hidden="true"></i>
+                          </a>
+                     </div>
+                </div>
             </div>
-          </div>
-          <div>
-            <div class="card text-center">
-              <img
-                class="card-img-top"
-                src="https://bit.ly/3sy35ZY"
-                alt="eventPoster"
-                width="280"
-                height="280"
-              />
-              <div class="card-body text-left pr-0 pl-0">
-                <h5>Flutter WorkShop series</h5>
-                <p class="card-text">
-                  Donec non sem mi. In hac habitasse platea dictumst. Nullam a
-                  feugiat augue, et porta metus. Nulla mollis lobortis leet.
-                  Maecenas tincidunt, arcu sed ornare purus risus . . .
-                </p>
-                <a href="#"
-                  >EXPLORE <i class="fa fa-angle-right" aria-hidden="true"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="card text-center">
-              <img
-                class="card-img-top"
-                src="https://bit.ly/3sy35ZY"
-                alt="eventPoster"
-                width="280"
-                height="280"
-              />
-              <div class="card-body text-left pr-0 pl-0">
-                <h5>Hacktoberfest</h5>
-                <p class="card-text">
-                  Donec non sem mi. In hac habitasse platea dictumst. Nullam a
-                  feugiat augue, et porta metus. Nulla mollis lobortis leet.
-                  Maecenas tincidunt, arcu sed ornare purus risus . . .
-                </p>
-                <a href="#"
-                  >EXPLORE <i class="fa fa-angle-right" aria-hidden="true"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div class="card text-center">
-              <img
-                class="card-img-top"
-                src="https://bit.ly/3sy35ZY"
-                alt="eventPoster"
-                width="280"
-                height="280"
-              />
-              <div class="card-body text-left pr-0 pl-0">
-                <h5>Hacktoberfest</h5>
-                <p class="card-text">
-                  Donec non sem mi. In hac habitasse platea dictumst. Nullam a
-                  feugiat augue, et porta metus. Nulla mollis lobortis leet.
-                  Maecenas tincidunt, arcu sed ornare purus risus . . .
-                </p>
-                <a href="#"
-                  >EXPLORE <i class="fa fa-angle-right" aria-hidden="true"></i
-                ></a>
-              </div>
-            </div>
-          </div>
-        </div>
+            </center>
+          {% endif %}
       </div>
     </div>
 
