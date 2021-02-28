@@ -16,7 +16,7 @@
               <a href="{% url 'eventreg:eventDetails' pk=event.pk %}">
                 <div class="card item-card card-block">
                   <h4 class="card-title text-right"><i class="material-icons">event</i></h4>
-                  <img class="eventLogo" src="/media/{{event.eventLogo}}" alt="Photo of sunset">
+                  <img class="eventLogo" src="{{event.get_eventLogo}}" alt="Photo of sunset">
                   <h4 class="item-card-title mt-3 mb-3">
                       <!--<a href="{% url 'eventreg:eventDetails' pk=event.pk %}">{{event.eventName}}</a>-->
                       {{event.eventName}}

@@ -33,7 +33,11 @@
               <li class="nav-item"><a class="redir nav-link" href="{% url 'accounts:profile' %}">Profile</a></li>
                 <!-- LOGIN button will be replaced here, if user is not logged in -->
                 <!--<li class="nav-item"><a class="redir nav-link" href="/dashboard">LOGIN</a></li>-->
+                {% if user.is_authenticated %}
               <li class="nav-item"><a class="redir nav-link" href="/accounts/logout">Logout</a></li>
+                {% else %}
+                <li class="nav-item"><a class="redir nav-link" href="/dashboard">LOGIN</a></li>
+                {% endif %}
             </ul>
         </div>
       </div>
