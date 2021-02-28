@@ -13,20 +13,6 @@
         <div class="gallery">
           <ul class="cards">
             <!-- Add speakers here by adding li div here -->
-            <li class="sp_card">0</li>
-            <li class="sp_card">1st speaker</li>
-            <li class="sp_card">
-              <div class="pic">
-                <img
-                  src="https://i.dailymail.co.uk/i/pix/2017/01/19/08/3C433EBC00000578-0-image-a-1_1484815082895.jpg"
-                  alt=""
-                />
-              </div>
-              <div class="name">
-                <p id="speaker_name">Mr. Robert Jr Downey</p>
-                <p id="profession">ex-Avenger Ironman</p>
-              </div>
-            </li>
             <li class="sp_card">
               <div class="pic">
                 <img
@@ -39,30 +25,17 @@
                 <p id="profession">OSC VIT-AP ex-President</p>
               </div>
             </li>
+            {% for speaker in Speakers %}
             <li class="sp_card">
               <div class="pic">
-                <img
-                  src="http://vitap.ac.in/wp-content/gallery/UniversityDay2018/IMG_8665_C.jpg"
-                  alt=""
-                />
+                <img src="{{speaker.get_speakerImage}}"  alt=""  />
               </div>
               <div class="name">
-                <p id="speaker_name">Nara Lokesh</p>
-                <p id="profession">Politician</p>
+                <p id="speaker_name">{{speaker.speakerName}}</p>
+                <p id="profession">{{speaker.speakerProfession}}</p>
               </div>
             </li>
-            <li class="sp_card">
-              <div class="pic">
-                <img
-                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvLXyt3yDgHurKoPmPr-_5T6Hr-Ru2eXkVrg&usqp=CAU"
-                  alt=""
-                />
-              </div>
-              <div class="name">
-                <p id="speaker_name">Dr. Kumar</p>
-                <p id="profession">A.I labs manager</p>
-              </div>
-            </li>
+            {% endfor %}
             <li class="sp_card">6th speaker</li>
             <li class="sp_card">7th speaker</li>
             <li class="sp_card">8th speaker</li>
@@ -80,5 +53,4 @@
   <script src="{% static 'dashboard/js/speakers.js' %}"></script>
 {% endblock %}
 {% block footer %}
-  noyyy
 {% endblock footer %}
