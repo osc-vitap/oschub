@@ -22,7 +22,8 @@ body {
 
 @media only screen and (min-width: 768px) {
   #details {
-    margin-top: 280px;
+    margin-top: 210px;
+    padding-bottom: 30px;
     color: white;
   }
 }
@@ -54,22 +55,24 @@ body {
 
 u {
   font-size: 30px;
-  font-family: 'Inconsolata';
-  font-style: italic;
+  font-family: 'Fredoka One', cursive;
 }
 
 h1 {
-  font-family: 'Ropa Sans';
+  /*font-family: 'Ropa Sans';*/
+  font-family: 'Cinzel', serif;
 }
 
 h4 {
-  font-family: 'Reem Kufi';
+  font-family: 'Gudea', sans-serif;
+  font-size: 20px;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
 #about {
   margin-top: 30px;
   margin-bottom: 80px;
   color: white;
-  font-family: Verdana, sans-serif;
-  font-size: 16px;
+  font-size: 22px;
+  font-family: 'ABeeZee', sans-serif;
 }
