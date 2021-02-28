@@ -3,6 +3,145 @@
 {% block content %}
  <link rel="stylesheet" href="{% static 'dashboard/css/about.css' %}">
     <div class="about">
-        <h1>Just a little something about us</h1>
+        <div id="header">
+      <span class=""
+        ><img class="imglogo" src="{% static 'dashboard/images/oschub-logo.PNG' %}" alt=""
+      /></span>
+      <h1 style="background: none;">We &#10084; OpenSource.</h1>
+      <p style="background: none;">
+        OSCHub is a web application that was created with the intention
+        <br />
+        of discarding the need for filling up redundant forms.
+      </p>
+    </div>
+
+    <!-- Main -->
+    <div id="main" style="">
+      <header class="major container medium">
+        <h2 class="thish2" style="font-weight: 700;">
+          Born from <br /> Winter Season of Code 2020
+        </h2>
+      </header>
+
+      <div class="box alt container">
+        <section class="feature left">
+          <a href="#" class="image icon solid fa-signal"
+            ><img src="{% static 'dashboard/images/pic01.jpg' %}" alt=""
+          /></a>
+          <div class="content">
+            <h3>The First Thing</h3>
+            <p>
+              Providing a hub for all the users to register for an event,
+              check-in, and even download the Documentation, all in one place!
+            </p>
+          </div>
+        </section>
+        <section class="feature right">
+          <a href="#" class="image icon solid fa-code"
+            ><img src="{% static 'dashboard/images/pic02.jpg' %}" alt=""
+          /></a>
+          <div class="content">
+            <h3>Tech Summits</h3>
+            <p>
+              Summits and Tech Days help bring developers across the globe together.
+              As open source advocates, we organize events like
+              Software Freedom Day and others that help us in bringing together tech
+              enthusiasts from various domains together.
+            </p>
+          </div>
+        </section>
+        <section class="feature left">
+          <a href="#" class="image icon solid fa-mobile-alt"
+            ><img src="{% static 'dashboard/images/pic03.jpg' %}" alt=""
+          /></a>
+          <div class="content">
+            <h3>Workshops</h3>
+            <p>
+              Hands-on experience is important for an individual to experiment and understand
+              the in-depth process of various technologies. Our partnerships with international
+              chapters and organizations bring in global experiences for our club members during
+              our workshops and seminars.
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <footer class="major container medium">
+        <h3 style="font-weight: 700;">Developers From OSC</h3>
+        <p>
+          Open source embodies some very positive aspects of the internet - collaboration,
+          knowledge and skill sharing towards a common goal.
+        </p>
+        <ul class="actions special"  style="z-index: 2;">
+          <li><a href="#" class="button" style="text-decoration: none;">Join Discord</a></li>
+        </ul>
+      </footer>
+    </div>
+
+    <!-- Form part of AboutUs -->
+    <div id="footer">
+      <div class="container medium">
+        <header class="major last" style="background-color: #5b5b5b;">
+          <h2 class="thish2" style="background-color: #5b5b5b; font-weight: 500;">Any Spark of ideas!</h2>
+        </header>
+
+        <p style="background-color: #5b5b5b;">
+         Get in touch with us Anytime! We'd love to hear from you...
+        </p>
+
+        <form method="post" action="#" >
+          <div class="row" >
+            <div class="col-6 col-12-mobilep" style="background-color: #5b5b5b;">
+              <input type="text" name="name" placeholder="Name" />
+            </div>
+            <div class="col-6 col-12-mobilep" style="background-color: #5b5b5b;">
+              <input type="email" name="email" placeholder="Email" />
+            </div>
+            <div class="col-12" style="background-color: #5b5b5b;">
+              <textarea
+                name="message"
+                placeholder="Message"
+                rows="6"
+              ></textarea>
+            </div>
+            <div class="col-12" style="background-color: #5b5b5b;">
+              <ul class="actions special" style="background-color: #5b5b5b;">
+                <li><input type="submit" value="Send Message" /></li>
+              </ul>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="container dev">
+      <div id="profile-container">
+        <figure>
+          <div class="adi"></div>
+          <figcaption>Dat Aditya <br /> (guide)</figcaption>
+        </figure>
+
+        <figure>
+          <div class="sudhindra"></div>
+          <figcaption>B. Sudhindra <br /> (Frontend)</figcaption>
+        </figure>
+
+        <figure>
+          <div class="bhargav"></div>
+          <figcaption>D. Bhargav <br /> (Backend)</figcaption>
+        </figure>
+
+         <figure>
+            <div class="krishna"></div>
+            <figcaption>N. KrishnaRaj <br /> (Backend)</figcaption>
+        </figure>
+      </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{% static 'dashboard/js/jquery.min.js' %}"></script>
+    <script src="{% static 'dashboard/js/browser.min.js' %}"></script>
+    <script src="{% static 'dashboard/js/breakpoints.min.js' %}"></script>
+    <script src="{% static 'dashboard/js/util.js' %}"></script>
+    <script src="{% static 'dashboard/js/about.js' %}"></script>
     </div>
 {% endblock content %}

@@ -4,7 +4,7 @@
 
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{% static 'accounts/css/profile.css' %}">
-<div class="profile">
+
   <div class="container">
     <h1>User Profile</h1>
   	<hr>
@@ -13,8 +13,8 @@
       <div class="col-md-3">
         <div class="text-center">
           <img src="{{user.socialaccount_set.all.0.get_avatar_url}}" class="avatar img-circle" alt="avatar">
-          <h6>Upload a different photo...</h6>
-          <input type="file" class="form-control">
+          <!--<h6>Upload a different photo...</h6>
+          <input type="file" class="form-control">-->
         </div>
       </div>
 
@@ -82,24 +82,54 @@
         </form>
       </div>
     </div>
+
+    <br /> <br /> <br />
+
+    <!-- ---------- user stats ----------- -->
+    <div class="stats" >
+      <div class="example-row" >
+          <div class="example" >
+              <h3>Events Registered but <br /> not Checked-in</h3>
+              <div class="js-radial counter radial"
+                  data-finnish="80"
+                  data-speed="26"
+                  data-append="%"
+                  data-color="#5EFB6E"
+              >
+                  <div class="display">
+                      <span class="count">0</span>
+                      <span class="decorator">%</span>
+                  </div>
+              </div>
+          </div>
+          <div class="example">
+              <h3>Events Attended <br /> Successfully</h3>
+              <div class="js-radial counter radial"
+                  data-finnish="70"
+                  data-speed="26"
+                  data-countanim="false"
+                  data-color="#7DFDFE">
+                  <div class="display"><span class="count">70</span><span class="decorator">%</span></div>
+              </div>
+          </div>
+          <div class="example">
+              <h3>Events Unattended </h3><br />
+              <div class="js-radial counter radial"
+                  data-finnish="30"
+                  data-speed="26"
+                  data-append="%"
+                  data-color="#FF9999"
+                  data-endcolor="#FF4C4C">
+                  <div class="display">
+                      <span class="count">70</span>
+                      <span class="decorator">%</span>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
     <hr>
   </div>
-</div>
-<div class="container">
-    <p><h1>total_events:{{total_events}}</h1></p>
-    <p><h3>event name and time</h3></p>
-         {% for event in events %}
-                <p><h3>eventName : {{event.eventName}} &emsp; eventDate : {{event.eventDate}}</h3></p>
-          {% endfor %}
-    <p><h1>total_events_attended:{{total_events_attended}}</h1></p>
-    <p><h3>event name and time</h3></p>
-         {% for event in events_attended %}
-                <p><h3>eventName : {{event.eventName}} &emsp; eventDate : {{event.eventDate}}</h3></p>
-          {% endfor %}
-    <p><h1>total_event_not_attended:{{total_event_not_attended}}</h1></p>
-    <p><h3>event name and time</h3></p>
-         {% for event in event_not_attended %}
-                <p><h3>eventName : {{event.eventName}} &emsp; eventDate : {{event.eventDate}}</h3></p>
-          {% endfor %}
-</div>
+<script src="{% static 'accounts/js/stats.js' %}"></script>
 {% endblock content %}

@@ -1,6 +1,6 @@
-*, body {
+/**, body {
     background-color: #242B2E;
-}
+}*/
 
 .ulitem {
   margin: 0;
@@ -49,9 +49,17 @@
     font-size: 48px;
     padding-top: 30px;
     padding-bottom: 35px;
-    pointer-events: none;
+    /*pointer-events: none;*/
 }
 
 .content-test {
-    height: 800px;
+    /*height: 800px;*/
+}
+
+.navbar {
+  background-color: #242B2E;
+}
+
+section {
+  width: 100%;
 }
