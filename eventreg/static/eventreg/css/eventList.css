@@ -29,7 +29,7 @@ body {
   cursor:pointer;
 }
 .item-card-title{
-  font-size:15px;
+  font-size:30px;
   transition:1s;
   cursor:pointer;
 }
