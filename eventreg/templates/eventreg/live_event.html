@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="container videostream">
     <div class="video-container">
-        <iframe class="video" width="560" height="315" src="https://www.youtube.com/embed/sNKD014uRj1"
+        <iframe class="video" width="560" height="315" src="{{ event.get_eventurl}}"
                 frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
         </iframe>
@@ -19,13 +19,15 @@
     <div class="container ">
         <div class="row justify-content-center">
             <div class="col-xs-6 col-md-6 col-lg-6 col-lg-offset-4 col-xs-offset-2">
-                <form action="" method="">
+                {% if is_stu_checkedIn %}
+                    <input id="checkin" type="button" name="checkedin" value="checkedin" disabled/>
+                {% else %}
+                     <form action="" method="post">
                     {% csrf_token %}
-                    <a href="#">
                         <input id="checkin" type="submit" name="check-in" value="Check-in" />
-                    </a>
-                    <a href="{{ event.eventDocumentation }}">
-                        <input id="documentation" type="submit" name="documentation" value="Documentation" />
+                {% endif %}
+                    <a href="{{ event.eventDocumentation }}" target="_blank" rel="noopener" >
+                        <input id="documentation" type="button" name="documentation" value="Documentation" />
                     </a>
                 </form>
             </div>
