@@ -22,9 +22,17 @@ class Profile(TemplateView):
         Quary3 = EventUserData.objects.filter(studentEmail=request.user.email, studentCheckedIn=False)
         Quary4 = Event.objects.all()
 
-        context["stat1"] = (len(Quary3)/len(Quary1))*100
-        context["stat2"] = (len(Quary2)/len(Quary1))*100
-        context["stat3"] = (len(Quary3)/len(Quary4))*100
+        if len(Quary1)>0:
+            context["stat1"] = (len(Quary3)/len(Quary1))*100
+            context["stat2"] = (len(Quary2)/len(Quary1))*100
+        else:
+            context["stat1"] = 0
+            context["stat2"] = 0
+        if len(Quary4)>0:
+            context["stat3"] = (len(Quary3)/len(Quary4))*100
+        else:
+            context["stat3"] = 0
+
         context["user_regno"] = request.user.email.split(".")[1].split("@")[0].upper()
         return self.render_to_response(context)
 
