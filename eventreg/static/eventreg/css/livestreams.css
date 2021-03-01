@@ -84,3 +84,20 @@ u {
   font-size: 22px;
   font-family: 'ABeeZee', sans-serif;
 }
+
+#checkin2 {
+  background-color: lightgreen;
+  color: black;
+  height: 50px;
+  width: 200px;
+  font-size: 20px;
+  border-radius: 40px;
+  border: none;
+  outline:none;
+  margin-top: 10px;
+}
+
+#checkin2:hover {
+     background-color: black;
+     color: lightgreen;
+}
