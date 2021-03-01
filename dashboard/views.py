@@ -60,7 +60,7 @@ class AboutView(TemplateView):
     template_name = "dashboard/about.html"
 
     def post(self, request):
-        emailto = ''  # Put The Receiver's Email Id here
+        emailto = 'bhargav.18bcd7017@vitap.ac.in'  # Put The Receiver's Email Id here
         msg = request.POST[
                   "message"] + f"\n\nName of Sender: {request.POST['name']} \nEmail of Sender: {request.POST['email']}"
         send_mail(subject=f"OSCHub Feedback from {request.POST['name']}", message=msg,
