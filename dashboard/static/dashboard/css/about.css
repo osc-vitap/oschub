@@ -3306,7 +3306,7 @@ input[type="button"].small,
 #profile-container figure div {
   border-radius: 50%;
   overflow: hidden;
-  background-blend-mode: luminosity;
+  /*background-blend-mode: luminosity;*/
   border: 5px solid #000;
   width: 9rem; height: 9rem;
   transition: .4s linear;
@@ -3325,25 +3325,25 @@ input[type="button"].small,
 }
 
 .adi {
-  background: url(https://bit.ly/3bFoV6U) no-repeat center
+  background: url(https://drive.google.com/uc?export=view&id=1oASDqVHlFTg7Maje_qQaqLsxsx5P4NE_) no-repeat center
     hsl(200,50%,50%);
   background-size: cover;
 }
 
 .sudhindra {
-  background: url(https://bit.ly/3bFoV6U) no-repeat center
+  background: url(https://drive.google.com/uc?export=view&id=1v3oHNm81_uXhjHFYJV2g6KXsER5tx6n_) no-repeat center
     hsl(200,50%,50%);
   background-size: cover;
 }
 
 .bhargav {
-  background: url(https://bit.ly/3bFoV6U) no-repeat center
+  background: url(https://drive.google.com/uc?export=view&id=1umvv6odsWruRiFrmzq8cHnwpkFyFGR7a) no-repeat center
     hsl(200,50%,50%);
   background-size: cover;
 }
 
 .krishna {
-  background: url(https://bit.ly/3bFoV6U) no-repeat center
+  background: url(https://drive.google.com/uc?export=view&id=16g_KSoYQJMcC0FJQDkfsmLmUboaoxlPJ) no-repeat center
     hsl(200,50%,50%);
   background-size: cover;
 }
