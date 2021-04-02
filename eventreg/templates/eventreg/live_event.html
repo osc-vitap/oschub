@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
 {% extends 'eventreg/livestream_base.html' %}
 {% load static %}
 
@@ -42,3 +44,58 @@
     </div>
    </div>
 {% endblock %}
+=======
+=======
+>>>>>>> parent of 5faf628 (Updated for Arch)
+{% extends 'eventreg/livestream_base.html' %}
+{% load static %}
+
+{% block livestream_block %}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="container videostream">
+    <div class="video-container">
+        <iframe class="video" width="560" height="315" src="{{ event.get_eventurl}}"
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+    </div>
+</div>
+{% endblock livestream_block %}
+
+
+{% block body_block %}
+    <div class="container ">
+        <div class="row justify-content-center">
+            <div class="col-xs-6 col-md-6 col-lg-6 col-lg-offset-4 col-xs-offset-2">
+                {% if is_stu_checkedIn %}
+<<<<<<< HEAD
+                    <input id="checkin2" type="button" name="checkedin" value="Checked-in" disabled/>
+=======
+                    <input id="checkin" type="button" name="checkedin" value="checkedin" disabled/>
+>>>>>>> parent of 5faf628 (Updated for Arch)
+                {% else %}
+                     <form action="" method="post">
+                    {% csrf_token %}
+                        <input id="checkin" type="submit" name="check-in" value="Check-in" />
+                {% endif %}
+                    <a href="{{ event.eventDocumentation }}" target="_blank" rel="noopener" >
+                        <input id="documentation" type="button" name="documentation" value="Documentation" />
+                    </a>
+                </form>
+            </div>
+        </div>
+        <div class="container down">
+      <div class="col-sm-12" id="about">
+        <u>About Event</u>
+        <br/>
+        <br/>
+        <p id="description">{{ event.eventDescription }}</p>
+      </div>
+    </div>
+   </div>
+{% endblock %}
+<<<<<<< HEAD
+>>>>>>> 35ccd7d2b58d76d104e7fcdfb89a21f537000525
+=======
+>>>>>>> parent of 5faf628 (Updated for Arch)
