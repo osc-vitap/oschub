@@ -6,3 +6,4 @@ Faker~=5.5.0
 gunicorn==19.6.0
 whitenoise
 python-decouple
+dj-database-url
