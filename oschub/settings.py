@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 from pathlib import Path
 from decouple import config, Csv
 import os
-import dj-database-url
+import dj_database_url
 
 load_dotenv()
 env_path = Path(".") / ".env"
