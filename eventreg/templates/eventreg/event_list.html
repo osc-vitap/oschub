@@ -15,7 +15,7 @@
             <div class="col-md-3 col-sm-6 item">
               <a href="{% url 'eventreg:eventDetails' pk=event.pk %}">
                 <div class="card item-card card-block">
-                    <h4 class="card-title text-right"><span id="eveDate" style="font-style:italic;">{{ event.eventDate }} </span>&nbsp; <i class="material-icons">event</i></h4>
+                  <h4 class="card-title text-right"><span id="eveDate" style="font-style:italic;">{{ event.eventDate }} </span>&nbsp; <i class="material-icons">event</i></h4>
                   <img class="eventLogo" src="{{event.get_eventLogo}}" alt="Photo of sunset">
                   <h4 class="item-card-title mt-3 mb-3">
                       <!--<a href="{% url 'eventreg:eventDetails' pk=event.pk %}">{{event.eventName}}</a>-->
