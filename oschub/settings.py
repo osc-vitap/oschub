@@ -16,7 +16,7 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", default=True, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -96,9 +96,10 @@ SOCIALACCOUNT_PROVIDERS = {
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 DATABASES = {
-    "default": dj_database_url.config(
-        default=config("DATABASE_URL")
-    )
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
+    }
 }
 
 # Password validation
@@ -134,21 +135,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-LOGGING = {
-    'version': 1,
-    'disable_existing_logges': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-            },
-        },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],
-            'level': config('DJANGO_LOG_LEVEL', 'DEBUG'),
-        },
-    },
-}
 
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
