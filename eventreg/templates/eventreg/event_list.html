@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 {% extends 'base.html' %}
 
 {% load static %}
@@ -17,7 +15,7 @@
             <div class="col-md-3 col-sm-6 item">
               <a href="{% url 'eventreg:eventDetails' pk=event.pk %}">
                 <div class="card item-card card-block">
-                  <h4 class="card-title text-right"><i class="material-icons">event</i></h4>
+                  <h4 class="card-title text-right"><span id="eveDate" style="font-style:italic;">{{ event.eventDate }} </span>&nbsp; <i class="material-icons">event</i></h4>
                   <img class="eventLogo" src="{{event.get_eventLogo}}" alt="Photo of sunset">
                   <h4 class="item-card-title mt-3 mb-3">
                       <!--<a href="{% url 'eventreg:eventDetails' pk=event.pk %}">{{event.eventName}}</a>-->
@@ -33,47 +31,3 @@
     </div>
 
 {% endblock content %}
-=======
-=======
->>>>>>> parent of 5faf628 (Updated for Arch)
-{% extends 'base.html' %}
-
-{% load static %}
-
-{% block content %}
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Mukta&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{% static 'eventreg/css/eventList.css' %}">
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
-    <div class="eventList">
-
-      <div class="container mt-2">
-        <div class="row">
-          {% for event in events %}
-            <div class="col-md-3 col-sm-6 item">
-              <a href="{% url 'eventreg:eventDetails' pk=event.pk %}">
-                <div class="card item-card card-block">
-<<<<<<< HEAD
-                    <h4 class="card-title text-right"><span id="eveDate" style="font-style:italic;">{{ event.eventDate }} </span>&nbsp; <i class="material-icons">event</i></h4>
-=======
-                  <h4 class="card-title text-right"><i class="material-icons">event</i></h4>
->>>>>>> parent of 5faf628 (Updated for Arch)
-                  <img class="eventLogo" src="{{event.get_eventLogo}}" alt="Photo of sunset">
-                  <h4 class="item-card-title mt-3 mb-3">
-                      <!--<a href="{% url 'eventreg:eventDetails' pk=event.pk %}">{{event.eventName}}</a>-->
-                      {{event.eventName}}
-                  </h4>
-                  <p class="card-text" id="caption">{{event.eventCaption}}</p>
-                </div>
-              </a>
-            </div>
-          {% endfor %}
-        </div>
-      </div>
-    </div>
-
-{% endblock content %}
-<<<<<<< HEAD
->>>>>>> 35ccd7d2b58d76d104e7fcdfb89a21f537000525
-=======
->>>>>>> parent of 5faf628 (Updated for Arch)
