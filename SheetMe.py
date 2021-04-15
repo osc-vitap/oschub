@@ -13,7 +13,6 @@ from accounts.models import MailList
 import datetime
 
 
-'''
 # creates a spreadSheet.
 def createSpreadSheet(mailList, title="NewSpreadsheet"):
     try:
@@ -151,4 +150,3 @@ service = gspread.authorize(credential)
 
 if __name__ == "__main__":
     updateData()
-'''
