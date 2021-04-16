@@ -16,7 +16,14 @@ SECRET_KEY = config("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG", default=True, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '*',
+    'https://osc-hub.herokuapp.com/',
+    'http://osc-hub.herokuapp.com/'
+    '0.0.0.0'
+    'osc-hub.herokuapp.com',
+    '127.0.0.1'
+]
 
 # Application definition
 
