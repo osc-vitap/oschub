@@ -1,7 +1,7 @@
 # OSCHub
 
-![WSoC Status](https://img.shields.io/badge/WSoC-2020-green)
-![WSoC Status](https://img.shields.io/badge/WSoC-2021-blue)
+[![WSoC Status](https://img.shields.io/badge/WSoC-2020-green)](https://wsoc.oscvitap.org)
+[![WSoC Status](https://img.shields.io/badge/WSoC-2021-blue)](https://wsoc.oscvitap.org)
 
 <p align="center">
     <img src="assets/Logo-White-Header.png" alt="wsoc logo">
