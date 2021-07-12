@@ -1,0 +1,27 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "dat-adi",
+      "name": "Dat Adithya",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31721284?v=4",
+      "profile": "http://dat-adi.github.io/tech-portfolio/",
+      "contributions": [
+        "design",
+        "doc",
+        "mentoring",
+        "projectManagement"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "oschub",
+  "projectOwner": "Open-Source-Community-VIT-AP",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
