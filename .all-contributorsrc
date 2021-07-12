@@ -39,6 +39,18 @@
         "bug",
         "infra"
       ]
+    },
+    {
+      "login": "Sudhee-bsp",
+      "name": "Sudhindra Pai",
+      "avatar_url": "https://avatars.githubusercontent.com/u/49405254?v=4",
+      "profile": "http://sudheebsp.in",
+      "contributions": [
+        "code",
+        "design",
+        "bug",
+        "content"
+      ]
     }
   ],
   "contributorsPerLine": 7,
