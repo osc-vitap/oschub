@@ -16,6 +16,18 @@
         "mentoring",
         "projectManagement"
       ]
+    },
+    {
+      "login": "kode-logger",
+      "name": "N KRISHNA RAJ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/55313761?v=4",
+      "profile": "https://github.com/kode-logger",
+      "contributions": [
+        "doc",
+        "bug",
+        "code",
+        "maintenance"
+      ]
     }
   ],
   "contributorsPerLine": 7,

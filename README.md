@@ -1,6 +1,6 @@
 # OSCHub
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![WSoC Status](https://img.shields.io/badge/WSoC-2020-green)](https://wsoc.oscvitap.org)
@@ -47,6 +47,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="http://dat-adi.github.io/tech-portfolio/"><img src="https://avatars.githubusercontent.com/u/31721284?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Dat Adithya</b></sub></a><br /><a href="#design-dat-adi" title="Design">🎨</a> <a href="https://github.com/Open-Source-Community-VIT-AP/oschub/commits?author=dat-adi" title="Documentation">📖</a> <a href="#mentoring-dat-adi" title="Mentoring">🧑‍🏫</a> <a href="#projectManagement-dat-adi" title="Project Management">📆</a></td>
+    <td align="center"><a href="https://github.com/kode-logger"><img src="https://avatars.githubusercontent.com/u/55313761?v=4?s=100" width="100px;" alt=""/><br /><sub><b>N KRISHNA RAJ</b></sub></a><br /><a href="https://github.com/Open-Source-Community-VIT-AP/oschub/commits?author=kode-logger" title="Documentation">📖</a> <a href="https://github.com/Open-Source-Community-VIT-AP/oschub/issues?q=author%3Akode-logger" title="Bug reports">🐛</a> <a href="https://github.com/Open-Source-Community-VIT-AP/oschub/commits?author=kode-logger" title="Code">💻</a> <a href="#maintenance-kode-logger" title="Maintenance">🚧</a></td>
   </tr>
 </table>
 
