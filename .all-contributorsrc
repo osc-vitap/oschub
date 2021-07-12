@@ -28,6 +28,17 @@
         "code",
         "maintenance"
       ]
+    },
+    {
+      "login": "bhargavd2",
+      "name": "DASARI BHARGAV",
+      "avatar_url": "https://avatars.githubusercontent.com/u/71269394?v=4",
+      "profile": "https://github.com/bhargavd2",
+      "contributions": [
+        "code",
+        "bug",
+        "infra"
+      ]
     }
   ],
   "contributorsPerLine": 7,
