@@ -51,6 +51,15 @@
         "bug",
         "content"
       ]
+    },
+    {
+      "login": "SVijayB",
+      "name": "Vijay",
+      "avatar_url": "https://avatars.githubusercontent.com/u/54742586?v=4",
+      "profile": "http://vijaybalaji.me/",
+      "contributions": [
+        "infra"
+      ]
     }
   ],
   "contributorsPerLine": 7,
