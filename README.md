@@ -31,12 +31,6 @@ The Technical Stack that has been worked on, throughout the development of this 
 | Back End Stack | Django | Google Cloud Platform |  |  |
 | Hosting / Databases | Google Sheets | PostgreSQL | Heroku |  |
 
-Winter Season of Code Initiative
----
-
-An initiative taken by the Open Source Community, visit the page to learn more.\
-[Winter Season of Code](https://wsoc.oscvitap.org)
-
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
@@ -60,3 +54,11 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+Winter Season of Code Initiative
+---
+
+An initiative taken by the Open Source Community, visit the page to learn more.\
+[Winter Season of Code](https://wsoc.oscvitap.org)
+
+This project is hosted under the Apache License 2.0, refer to the [LICENSE](https://github.com/Open-Source-Community-VIT-AP/oschub/blob/master/LICENSE) for more information.
