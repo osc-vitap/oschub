@@ -1,50 +1,70 @@
 {% extends 'base.html' %}
-
 {% load static %}
-
 {% block content %}
-<link rel="stylesheet" type="text/css" href="{% static 'accounts/css/profile.css' %}">
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'accounts/css/profile.css' %}"
+/>
 
-  <div class="container">
-    <h1>User Profile</h1>
-  	<hr>
-	<div class="row">
-      <!-- left column -->
-      <div class="col-md-3">
-        <div class="text-center">
-          <img src="{{user.socialaccount_set.all.0.get_avatar_url}}" class="avatar img-circle" alt="avatar">
-          <!--<h6>Upload a different photo...</h6>
+<div class="container">
+  <h1>User Profile</h1>
+  <hr />
+  <div class="row">
+    <!-- left column -->
+    <div class="col-md-3">
+      <div class="text-center">
+        <img
+          src="{{user.socialaccount_set.all.0.get_avatar_url}}"
+          class="avatar img-circle"
+          alt="avatar"
+        />
+        <!--<h6>Upload a different photo...</h6>
           <input type="file" class="form-control">-->
-        </div>
       </div>
+    </div>
 
-      <!-- edit form column -->
-      <div class="col-md-9 personal-info">
-        <h3>Personal info</h3>
+    <!-- edit form column -->
+    <div class="col-md-9 personal-info">
+      <h3>Personal info</h3>
 
-        <form class="form-horizontal" role="form">
-
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Full name:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="{{user.first_name }}" readonly>
-            </div>
+      <form class="form-horizontal" role="form">
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Full name:</label>
+          <div class="col-lg-8">
+            <input
+              class="form-control"
+              type="text"
+              value="{{user.first_name }}"
+              readonly
+            />
           </div>
+        </div>
 
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Email:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="{{user.email }}" readonly>
-            </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">Email:</label>
+          <div class="col-lg-8">
+            <input
+              class="form-control"
+              type="text"
+              value="{{user.email }}"
+              readonly
+            />
           </div>
+        </div>
 
-          <div class="form-group">
-            <label class="col-lg-3 control-label">RegNo:</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" value="{{user_regno}}" readonly>
-            </div>
+        <div class="form-group">
+          <label class="col-lg-3 control-label">RegNo:</label>
+          <div class="col-lg-8">
+            <input
+              class="form-control"
+              type="text"
+              value="{{user_regno}}"
+              readonly
+            />
           </div>
-            <!--
+        </div>
+        <!--
           <div class="form-group">
             <label class="col-lg-3 control-label">Branch:</label>
             <div class="col-lg-8">
@@ -79,60 +99,74 @@
             </div>
           </div>
             -->
-        </form>
-      </div>
+      </form>
     </div>
-
-    <br /> <br /> <br />
-
-    <!-- ---------- user stats ----------- -->
-    <div class="stats" >
-      <div class="example-row" >
-          <div class="example" >
-              <h3>Events Registered but <br /> not Checked-in</h3>
-              <div class="js-radial counter radial"
-                  data-finnish="{{stat1}}"
-                  data-speed="26"
-                  data-append="%"
-                  data-color="#5EFB6E"
-              >
-                  <div class="display">
-                      <span class="count">0</span>
-                      <span class="decorator">%</span>
-                  </div>
-              </div>
-          </div>
-          <div class="example">
-              <h3>Events Attended <br /> Successfully</h3>
-              <div class="js-radial counter radial"
-                  data-finnish="{{stat2}}"
-                  data-speed="26"
-                   data-append="%"
-                  data-color="#7DFDFE">
-                  <div class="display">
-                      <span class="count">0</span>
-                      <span class="decorator">%</span>
-                  </div>
-              </div>
-          </div>
-          <div class="example">
-              <h3>Events Unattended </h3><br />
-              <div class="js-radial counter radial"
-                  data-finnish="{{stat3}}"
-                  data-speed="26"
-                  data-append="%"
-                  data-color="#FF9999"
-                  data-endcolor="#FF4C4C">
-                  <div class="display">
-                      <span class="count">70</span>
-                      <span class="decorator">%</span>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </div>
-
-    <hr>
   </div>
+
+  <br />
+  <br />
+  <br />
+
+  <!-- ---------- user stats ----------- -->
+  <div class="stats">
+    <div class="example-row">
+      <div class="example">
+        <h3>
+          Events Registered but <br />
+          not Checked-in
+        </h3>
+        <div
+          class="js-radial counter radial"
+          data-finnish="{{stat1}}"
+          data-speed="26"
+          data-append="%"
+          data-color="#5EFB6E"
+        >
+          <div class="display">
+            <span class="count">0</span>
+            <span class="decorator">%</span>
+          </div>
+        </div>
+      </div>
+      <div class="example">
+        <h3>
+          Events Attended <br />
+          Successfully
+        </h3>
+        <div
+          class="js-radial counter radial"
+          data-finnish="{{stat2}}"
+          data-speed="26"
+          data-append="%"
+          data-color="#7DFDFE"
+        >
+          <div class="display">
+            <span class="count">0</span>
+            <span class="decorator">%</span>
+          </div>
+        </div>
+      </div>
+      <div class="example">
+        <h3>Events Unattended</h3>
+        <br />
+        <div
+          class="js-radial counter radial"
+          data-finnish="{{stat3}}"
+          data-speed="26"
+          data-append="%"
+          data-color="#FF9999"
+          data-endcolor="#FF4C4C"
+        >
+          <div class="display">
+            <span class="count">70</span>
+            <span class="decorator">%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+</div>
 <script src="{% static 'accounts/js/stats.js' %}"></script>
 {% endblock content %}
