@@ -1,40 +1,43 @@
-*,*::before,*::after{
+*,
+*::before,
+*::after {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  transition: all .2s ease ;
+  transition: all 0.2s ease;
   outline: none;
 }
 
-body{
+body {
   font-family: Sans-Serif;
-  background-color: #242B2E;
+  background-color: #242b2e;
 }
 
-*::before,*::after{
-  content: '';
+*::before,
+*::after {
+  content: "";
 }
 
-.videostream{
-  height: 100vh;
-/*  width: 100vw;*/
+.videostream {
+  height: 150vh;
   display: grid;
   place-items: center;
-  margin-top: -10px;
+  margin-top: -30vh;
 }
 
-.video{
-  height: 580px;
+.video {
+  height: 100%;
   width: 100%;
 }
 
-.video-container{
+.video-container {
   position: relative;
-  width: 100%;
+  width: 90%;
+  height: 155%;
   margin: auto;
   overflow: hidden;
   border-radius: 5px;
-  box-shadow:0 0 50px #000;
+  box-shadow: 0 0 50px #000;
 }
 
 #checkin {
@@ -43,46 +46,47 @@ body{
   height: 50px;
   width: 200px;
   font-size: 20px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   border-radius: 40px;
   border: none;
-  outline:none;
+  outline: none;
   margin-right: 10px;
   margin-left: 10px;
 }
 
-#documentation{
+#documentation {
   background-color: gold;
   color: black;
   height: 50px;
   width: 200px;
   font-size: 20px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   border-radius: 40px;
   border: none;
-  outline:none;
+  outline: none;
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 10px;
 }
 
-#checkin:hover, #documentation:hover {
-   background-color: black;
-   color: gold;
+#checkin:hover,
+#documentation:hover {
+  background-color: black;
+  color: gold;
 }
 
 u {
   font-size: 30px;
-  font-family: 'Fredoka One', cursive;
+  font-family: "Fredoka One", cursive;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee&display=swap");
 #about {
   margin-top: 30px;
   margin-bottom: 80px;
   color: white;
   font-size: 22px;
-  font-family: 'ABeeZee', sans-serif;
+  font-family: "ABeeZee", sans-serif;
 }
 
 #checkin2 {
@@ -93,11 +97,11 @@ u {
   font-size: 20px;
   border-radius: 40px;
   border: none;
-  outline:none;
+  outline: none;
   margin-top: 10px;
 }
 
 #checkin2:hover {
-     background-color: black;
-     color: lightgreen;
+  background-color: black;
+  color: lightgreen;
 }

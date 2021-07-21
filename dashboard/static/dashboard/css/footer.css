@@ -2,7 +2,7 @@ footer {
   position: relative;
   margin-bottom: 0px;
   bottom: 0;
-  width:100%;
+  width: 100%;
 }
 
 .footer-container {
@@ -138,7 +138,7 @@ footer {
 }
 
 .social-logo .img {
-    font-size: 200px;
+  font-size: 200px;
 }
 
 .website-rights {

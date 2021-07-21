@@ -1,11 +1,11 @@
 * {
-  background-color: #242B2E;
+  background-color: #242b2e;
   /* background-image: url('../images/bg.png');*/
   color: white;
 }
 
 body {
-  background-color: #242B2E;
+  background-color: #242b2e;
 }
 
 #details {
@@ -44,13 +44,13 @@ body {
   font-size: 20px;
   border-radius: 40px;
   border: none;
-  outline:none;
+  outline: none;
   margin-top: 10px;
 }
 
 #register:hover {
-     background-color: black;
-     color: gold;
+  background-color: black;
+  color: gold;
 }
 #livesoon {
   background-color: lightgreen;
@@ -60,34 +60,34 @@ body {
   font-size: 20px;
   border-radius: 40px;
   border: none;
-  outline:none;
+  outline: none;
   margin-top: 10px;
 }
 
 #livesoon:hover {
-     background-color: black;
-     color: lightgreen;
+  background-color: black;
+  color: lightgreen;
 }
 u {
   font-size: 30px;
-  font-family: 'Fredoka One', cursive;
+  font-family: "Fredoka One", cursive;
 }
 
 h1 {
   /*font-family: 'Ropa Sans';*/
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
 }
 
 h4 {
-  font-family: 'Gudea', sans-serif;
+  font-family: "Gudea", sans-serif;
   font-size: 20px;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee&display=swap");
 #about {
   margin-top: 30px;
   margin-bottom: 80px;
   color: white;
   font-size: 22px;
-  font-family: 'ABeeZee', sans-serif;
+  font-family: "ABeeZee", sans-serif;
 }
