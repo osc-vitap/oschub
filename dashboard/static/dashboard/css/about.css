@@ -13,14 +13,85 @@
   }
 }
 
-html,body,div,span,applet,object,iframe,h1,.thish2,h3,
-h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,
-cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,
-sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,
-form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,
-aside,canvas,details,embed,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,
-audio,video
-{
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+.thish2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -39,7 +110,7 @@ menu,
 nav,
 section {
   display: block;
-  background-color: #242B2E;
+  background-color: #242b2e;
 }
 
 body {
@@ -83,7 +154,7 @@ body {
 }
 
 body {
- /* background: #242b2e;*/
+  /* background: #242b2e;*/
 }
 
 body,
@@ -2413,7 +2484,7 @@ ul.icons {
 
 ul.icons li {
   display: inline-block;
- /* font-size: 1.25em;*/
+  /* font-size: 1.25em;*/
   line-height: 1em;
   padding-left: 0.5em;
 }
@@ -2858,11 +2929,11 @@ input[type="button"].small,
 
 @media screen and (min-width: 768px) {
   #main {
-      padding: 6em 0 0 0;
-      position: relative;
-      z-index: 1;
-      height: 2340px;
-   }
+    padding: 6em 0 0 0;
+    position: relative;
+    z-index: 1;
+    height: 2340px;
+  }
 }
 
 /*@media screen and (min-width: 400px) {
@@ -3282,9 +3353,7 @@ input[type="button"].small,
   }
 }
 
-
-#profile-container
-{
+#profile-container {
   display: flex;
   justify-content: space-between;
   width: 900px;
@@ -3301,15 +3370,16 @@ input[type="button"].small,
 
 #profile-container figure {
   display: inline-block;
-  }
+}
 
 #profile-container figure div {
   border-radius: 50%;
   overflow: hidden;
   /*background-blend-mode: luminosity;*/
   border: 5px solid #000;
-  width: 9rem; height: 9rem;
-  transition: .4s linear;
+  width: 9rem;
+  height: 9rem;
+  transition: 0.4s linear;
   will-change: background-color;
   margin: 5px;
 }
@@ -3325,25 +3395,25 @@ input[type="button"].small,
 }
 
 .adi {
-  background: url(https://drive.google.com/uc?export=view&id=1oASDqVHlFTg7Maje_qQaqLsxsx5P4NE_) no-repeat center
-    hsl(200,50%,50%);
+  background: url(https://drive.google.com/uc?export=view&id=1oASDqVHlFTg7Maje_qQaqLsxsx5P4NE_)
+    no-repeat center hsl(200, 50%, 50%);
   background-size: cover;
 }
 
 .sudhindra {
-  background: url(https://drive.google.com/uc?export=view&id=1v3oHNm81_uXhjHFYJV2g6KXsER5tx6n_) no-repeat center
-    hsl(200,50%,50%);
+  background: url(https://drive.google.com/uc?export=view&id=1v3oHNm81_uXhjHFYJV2g6KXsER5tx6n_)
+    no-repeat center hsl(200, 50%, 50%);
   background-size: cover;
 }
 
 .bhargav {
-  background: url(https://drive.google.com/uc?export=view&id=1umvv6odsWruRiFrmzq8cHnwpkFyFGR7a) no-repeat center
-    hsl(200,50%,50%);
+  background: url(https://drive.google.com/uc?export=view&id=1umvv6odsWruRiFrmzq8cHnwpkFyFGR7a)
+    no-repeat center hsl(200, 50%, 50%);
   background-size: cover;
 }
 
 .krishna {
-  background: url(https://drive.google.com/uc?export=view&id=16g_KSoYQJMcC0FJQDkfsmLmUboaoxlPJ) no-repeat center
-    hsl(200,50%,50%);
+  background: url(https://drive.google.com/uc?export=view&id=16g_KSoYQJMcC0FJQDkfsmLmUboaoxlPJ)
+    no-repeat center hsl(200, 50%, 50%);
   background-size: cover;
 }

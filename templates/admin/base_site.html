@@ -1,24 +1,33 @@
 {% extends "admin/base.html" %}
-
-{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | OSChub Admin {% endblock %}
+{% block title %}
+    {% if subtitle %}
+        {{ subtitle }} | 
+    {% endif %}
+    {{ title }} | OSChub Admin 
+{% endblock %} 
 
 {% block extrastyle %}
-    <style>
-        #mod2sheet {
-            background-color: #4CAF50;
-            color: white;
-            text-align: center;
-            border: none;
-            padding: 10px 10px;
-            border-radius: 8px;
-        }
-    </style>
+<style>
+  #mod2sheet {
+    background-color: #4caf50;
+    color: white;
+    text-align: center;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 8px;
+  }
+</style>
 {% endblock %}
-
 {% block branding %}
-    <h1 id="site-name"><a href="{% url 'admin:index' %}">OSCHUB</a></h1>
+<h1 id="site-name"><a href="{% url 'admin:index' %}">OSCHUB</a></h1>
 {% endblock %}
-
 {% block nav-global %}
-    <button id="mod2sheet" type="submit" onclick="location.href='{% url 'updateSheet' %}'">Update Sheet</button>
+
+<button
+  id="mod2sheet"
+  type="submit"
+  onclick="location.href='{% url 'updateSheet' %}'"
+>
+  Update Sheet
+</button>
 {% endblock %}

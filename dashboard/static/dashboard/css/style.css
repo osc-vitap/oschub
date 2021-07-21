@@ -46,24 +46,24 @@
 }
 
 .navbar-header .title {
-    font-size: 48px;
-    padding-top: 30px;
-    padding-bottom: 35px;
-    /*pointer-events: none;*/
+  font-size: 48px;
+  padding-top: 30px;
+  padding-bottom: 35px;
+  /*pointer-events: none;*/
 }
 
 .content-test {
-    /*height: 800px;*/
+  /*height: 800px;*/
 }
 
 .navbar {
-  background-color: #242B2E;
+  background-color: #242b2e;
 }
 
 section {
   width: 100%;
 }
-.home_img{
-  margin-top: 100px  !important;
-  margin-left: 2vw  !important;
+.home_img {
+  margin-top: 100px !important;
+  margin-left: 2vw !important;
 }
