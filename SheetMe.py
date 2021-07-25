@@ -21,14 +21,15 @@ def createSpreadSheet(mailList, title="NewSpreadsheet"):
             sheet = service.create(title)
             print("[$] SpreadSheet ID: " + str(sheet.id))
             for index, emailid in enumerate(mailList):
-                if index == 0:
-                    sheet.share(emailid, perm_type="user", role="owner")
-                else:
-                    sheet.share(emailid, perm_type="user", role="writer", notify=True)
+                # if index == 0:
+                #     sheet.share(emailid, perm_type="user", role="owner")
+                # else:
+                sheet.share(emailid, perm_type="user", role="writer", notify=True)
                 print("Shared sheet to " + emailid)
             createdNewSpreadSheet = True
-    except gspread.exceptions.APIError:
+    except gspread.exceptions.APIError as error:
         print("API Error: Trying Again !!")
+        print(error)
         createSpreadSheet(mailList, title)  # If API error then try again
 
 
@@ -79,7 +80,7 @@ def getCompletedEvents():
 
 def updateData():
     admin_mail_latest = getAdminMail()
-    eventlist = getCompletedEvents()
+    event_list = getCompletedEvents()
     # If spreadsheet not found then make a new one
     try:
         sheet = service.open("Events")
@@ -90,10 +91,10 @@ def updateData():
     sheet = service.open("Events")
 
     #  sharing the sheet once again to share the file with newly added user
-    for emailid in admin_mail_latest:
-        if emailid not in admin_mail:
-            sheet.share(emailid, perm_type="user", role="writer", notify=True)
-            print("Shared sheet to " + emailid)
+    for email_id in admin_mail_latest:
+        if email_id not in admin_mail:
+            sheet.share(email_id, perm_type="user", role="writer", notify=True)
+            print("Shared sheet to " + email_id)
 
     #  get all the available worksheets
     worksheet = sheet.worksheets()
@@ -102,7 +103,7 @@ def updateData():
         sheetList.append(work.title)
 
     # getting user data for the events that are over
-    for event in eventlist:
+    for event in event_list:
         studentList = []
         if event in sheetList:
             print(f"[!] Skipping the Sheet, the worksheet {event} already exists !!")
@@ -150,3 +151,7 @@ service = gspread.authorize(credential)
 
 if __name__ == "__main__":
     updateData()
+    # # delete the existing spreadsheets of the bot account
+    # for spreadsheet in service.openall():
+    #     service.del_spreadsheet(spreadsheet.id)
+    #     print("deleted " + spreadsheet.title + " || " + spreadsheet.id)
