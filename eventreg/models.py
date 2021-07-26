@@ -52,8 +52,8 @@ class Event(models.Model):
 
 class EventUserData(models.Model):
     eventName = models.ForeignKey(Event, on_delete=models.CASCADE)
-    studentName = models.CharField(max_length=26)
-    studentReg = models.CharField(max_length=10)
+    studentName = models.CharField(max_length=50)
+    studentReg = models.CharField(max_length=12)
     studentEmail = models.EmailField()
     studentRegistered = models.BooleanField(default=False)
     studentCheckedIn = models.BooleanField(default=False)
