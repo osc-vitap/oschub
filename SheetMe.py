@@ -11,6 +11,8 @@ from google.oauth2 import service_account
 from eventreg.models import EventUserData, Event
 from accounts.models import MailList
 import datetime
+from decouple import config
+import json
 
 
 # creates a spreadSheet.
@@ -21,6 +23,7 @@ def createSpreadSheet(mailList, title="NewSpreadsheet"):
             sheet = service.create(title)
             print("[$] SpreadSheet ID: " + str(sheet.id))
             for index, emailid in enumerate(mailList):
+                # Commented code cause Ownership Access error
                 # if index == 0:
                 #     sheet.share(emailid, perm_type="user", role="owner")
                 # else:
@@ -135,6 +138,12 @@ def getAdminMail():
     return admin_mail
 
 
+def delAllSpreadsheet():
+    for spreadsheet in service.openall():
+        service.del_spreadsheet(spreadsheet.id)
+        print("deleted " + spreadsheet.title + " || " + spreadsheet.id)
+
+
 # CAUTION: First Email is given owner access, rest all emails are given writer access due to API restrictions.
 createdNewSpreadSheet = False
 admin_mail = getAdminMail()
@@ -144,14 +153,14 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive.file",
     "https://www.googleapis.com/auth/drive",
 ]
-credential = service_account.Credentials.from_service_account_file(
-    "credentials.json", scopes=SCOPE
-)
+
+credential_info = json.loads(config("CREDENTIALS"))
+credential = service_account.Credentials.from_service_account_info(credential_info, scopes=SCOPE)
 service = gspread.authorize(credential)
 
 if __name__ == "__main__":
+    # Use the following method to update data to the google spreadsheet
     updateData()
-    # # delete the existing spreadsheets of the bot account
-    # for spreadsheet in service.openall():
-    #     service.del_spreadsheet(spreadsheet.id)
-    #     print("deleted " + spreadsheet.title + " || " + spreadsheet.id)
+
+    # Use the following method to delete all the existing spreadsheets of the bot account
+    # delAllSpreadsheet()
