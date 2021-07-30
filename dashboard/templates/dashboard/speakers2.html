@@ -2,18 +2,28 @@
 <title>OSCHub | Speakers</title>
 <link rel="stylesheet" href="{% static 'dashboard/css/cards.css' %}" />
 <body>
-	<li class="card">
-		<img
-			src="http://vitap.ac.in/wp-content/gallery/flamenco-2018/IMG_6630.JPG"
-			alt=""
-		/>
-		<div class="card-content">
-			<h2 class="card-title">Mario Behling</h2>
-			<p class="card-body">
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque,
-				reprehenderit?
-			</p>
-			<a href="#" class="button">Learn More</a>
-		</div>
-	</li>
+    <ul class="cards">
+        <li class="card">
+            <img
+                src="http://vitap.ac.in/wp-content/gallery/flamenco-2018/IMG_6630.JPG"
+                alt=""
+            />
+            <div class="card-content">
+                <h2 class="card-title">Mario Behling</h2>
+                <p class="card-body">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque,
+                    reprehenderit?
+                </p>
+            </div>
+        </li>
+        {% for speaker in Speakers %}
+        <li class="card">
+            <img src="{{speaker.get_speakerImage}}" alt="" />
+            <div class="card-content">
+                <h2 id="card-title">{{speaker.speakerName}}</h2>
+                <p id="card-body">{{speaker.speakerProfession}}</p>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
 </body>
