@@ -76,8 +76,9 @@ body {
 }
 
 u {
-  font-size: 30px;
-  font-family: "Fredoka One", cursive;
+  font-size: 35px;
+  margin-bottom: 10px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=ABeeZee&display=swap");
