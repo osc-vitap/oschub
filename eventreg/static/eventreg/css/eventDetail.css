@@ -9,7 +9,6 @@ body {
 }
 
 #details {
-  margin-top: 70px;
   margin-left: 0;
   color: white;
 }
@@ -23,19 +22,15 @@ body {
 
 @media only screen and (min-width: 768px) {
   #details {
-    margin-top: 210px;
     padding-bottom: 30px;
     color: white;
   }
 }
 
 #eventpic {
-  /* width: 500px;
-  height: 300px; */
   width: 90%;
-  
+  margin-top: 0;
   height: 90%;
-  margin-top: 100px;
   border-radius: 10px;
 }
 
@@ -74,11 +69,11 @@ body {
 u {
   font-size: 35px;
   margin-bottom: 10px;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h1 {
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 h4 {
