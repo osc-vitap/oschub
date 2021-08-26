@@ -72,12 +72,12 @@ def getCompletedEvents():
     )  # gets the events with date before today
     eventlist = []
     for event in events:
-        eventlist.append(event.eventName)
+        eventlist.append(event.eventName.replace(':', '|'))
     events = Event.objects.filter(eventDate=datetime.date.today()).filter(
         eventEndTime__lt=datetime.datetime.now().strftime("%H:%M:%S")
     )
     for event in events:
-        eventlist.append(event.eventName)
+        eventlist.append(event.eventName.replace(':', '|'))
     return eventlist
 
 
@@ -111,7 +111,7 @@ def updateData():
         if event in sheetList:
             print(f"[!] Skipping the Sheet, the worksheet {event} already exists !!")
         else:
-            students = EventUserData.objects.filter(eventName__eventName=event)
+            students = EventUserData.objects.filter(eventName__eventName=event.replace('|', ':'))
             for student in students:
                 studentList.append(
                     [
@@ -126,7 +126,7 @@ def updateData():
             worksheet.batch_update(
                 [{"range": f"A2:E{len(studentList) + 1}", "values": studentList}]
             )
-            print("[x] Added sample data set to sheet " + event)
+            print("[x] Added user data set to sheet " + event)
 
 
 def getAdminMail():
