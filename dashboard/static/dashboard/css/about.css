@@ -103,7 +103,6 @@ video {
 article,
 aside,
 details,
-footer,
 header,
 hgroup,
 menu,
@@ -112,6 +111,12 @@ section {
   display: block;
   background-color: #242b2e;
 }
+
+/* footer-icon section color fix */
+footer section{
+  background-color: #0e1011;
+}
+
 
 body {
   line-height: 1;
@@ -2312,7 +2317,7 @@ span.image.icon {
   text-rendering: auto;
   line-height: 1;
   text-transform: none !important;
-  font-family: "Font Awesome 5 Free";
+  font-family: "FontAwesome";
   font-weight: 400;
 }
 
