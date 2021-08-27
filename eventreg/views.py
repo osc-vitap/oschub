@@ -2,6 +2,7 @@ from django.views.generic import ListView, DetailView
 from django.http import HttpResponseRedirect
 from eventreg.models import EventUserData, Event
 import datetime
+from urllib.parse import urlparse, parse_qs
 
 
 class EventListView(ListView):
@@ -108,6 +109,16 @@ class LiveStreamView(DetailView):
         self.object = self.get_object()
         context = self.get_context_data(object=self.object)
         context["is_stu_checkedIn"] = Flag
+
+        for event in Event.objects.filter(eventName=kwargs['pk']):
+            try:
+                context['liveID'] = parse_qs(urlparse(event.eventURL).query)['v'][0]
+                context['isValidID'] = True
+                print('Live Chat is ON')
+            except:
+                context['isValidID'] = False
+            break
+
         return self.render_to_response(context)
 
     def post(self, request, *args, **kwargs):
