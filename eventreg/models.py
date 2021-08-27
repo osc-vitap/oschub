@@ -25,6 +25,7 @@ class Event(models.Model):
     )  # Event Registration deadline time
     eventSpeaker = models.TextField(editable=True)  # Speakers in the Event
     eventURL = models.URLField(editable=True)  # Event Livestream URL link
+    eventIsLive = models.BooleanField(default=True)  # Event is Livestreamed?
     eventDocumentation = models.URLField(
         editable=True, default=""
     )  # Event Documentation URL link
