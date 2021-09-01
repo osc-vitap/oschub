@@ -1,54 +1,33 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<title>OSCHub | Speakers</title>
-<link rel="preconnect" href="https://fonts.gstatic.com" />
-<link
-  href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,100&display=swap"
-  rel="stylesheet"
-/>
-<link rel="stylesheet" href="{% static 'dashboard/css/speakers.css' %}" />
+    <title>OSCHub | Speakers</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,100&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.js" ></script>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
+    <link rel="stylesheet" href="{% static 'dashboard/css/speakers.css' %}">
 
-<div class="speakers">
-  <div class="gallery">
-    <ul class="cards">
-      <!-- Add speakers here by adding li div here -->
-      <li class="sp_card">
-        <div class="pic">
-          <img
-            src="http://vitap.ac.in/wp-content/gallery/flamenco-2018/IMG_6630.JPG"
-            alt=""
-          />
-        </div>
-        <div class="name">
-          <p id="speaker_name">Mr. Akhil Surendran</p>
-          <p id="profession">OSC VIT-AP ex-President</p>
-        </div>
-      </li>
+    <div class="slider owl-carousel">
       {% for speaker in Speakers %}
-      <li class="sp_card">
-        <div class="pic">
-          <img src="{{speaker.get_speakerImage}}" alt="" />
+      <div class="card" >
+        <div class="img"> <img src="{{speaker.get_speakerImage}}"  alt=""  /> </div>
+        <div class="content">
+          <div class="title">{{speaker.speakerName}}</div>
+          <div class="sub-title">{{speaker.speakerProfession}}</div>
         </div>
-        <div class="name">
-          <p id="speaker_name">{{speaker.speakerName}}</p>
-          <p id="profession">{{speaker.speakerProfession}}</p>
-        </div>
-      </li>
+      </div>
       {% endfor %}
-      <li class="sp_card">6th speaker</li>
-      <li class="sp_card">7th speaker</li>
-      <li class="sp_card">8th speaker</li>
-      <!-- add here  -->
-    </ul>
-    <div class="actions">
-      <button href="#" class="prev">&laquo;</button>
-      <button href="#" class="next">&raquo;</button>
     </div>
   </div>
-</div>
-
-<script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
-<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-<script src="{% static 'dashboard/js/speakers.js' %}"></script>
-{% endblock %} {% block footer %} {% endblock footer %}
+  <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="{% static 'dashboard/js/speakers.js' %}"></script>
+{% endblock %}
+{% block footer %}
+{% endblock footer %}
