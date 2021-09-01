@@ -9,6 +9,7 @@ html,body{
   display: grid;
   height: 100%;
   background-color: #242b2e;
+  overflow: hidden;
 }
 .slider{
   max-width: 1000px;
