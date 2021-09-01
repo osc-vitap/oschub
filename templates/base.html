@@ -1,270 +1,249 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-	<head>
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1, minimum-scale=1"
-		/>
-		{% block head-css %}
-		<link rel="icon" href="{% static 'dashboard/images/ico.ico' %}" />
-		<link
-			rel="stylesheet"
-			href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
-		/>
-		<link
-			href="https://fonts.googleapis.com/"
-			rel="stylesheet"
-			type="text/css"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"
-		/>
-		<link
-			rel="stylesheet"
-			type="text/css"
-			href="{% static 'dashboard/css/style.css' %}"
-		/>
-		<link
-			rel="stylesheet"
-			type="text/css"
-			href="{% static 'dashboard/css/footer.css' %}"
-		/>
-		{% endblock head-css %}
-		<title>Dashboard</title>
-	</head>
-	<body>
-		<div class="navbar">
-			<nav class="navbar navbar-inverse navbar-fixed-top">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<button
-							type="button"
-							class="navbar-toggle"
-							data-toggle="collapse"
-							data-target="#myNavbar"
-							aria-controls="navbarNav"
-							aria-expanded="false"
-							aria-label="Toggle navigation"
-						>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand title" href="/dashboard"
-							>OSCHub</a
-						>
-					</div>
-					<div class="collapse navbar-collapse" id="myNavbar">
-						<ul class="nav navbar-nav navbar-right ulitem">
-							<li class="nav-item">
-								<a
-									class="redir nav-link"
-									href="{% url 'eventreg:eventList' %}"
-									>Events</a
-								>
-							</li>
-							<li class="nav-item">
-								<a
-									class="redir nav-link"
-									href="{% url 'dashboard:speakers' %}"
-									>Speakers</a
-								>
-							</li>
-							<li class="nav-item">
-								<a
-									class="redir nav-link"
-									href="{% url 'dashboard:about' %}"
-									>About</a
-								>
-							</li>
-							<li class="nav-item">
-								<a
-									class="redir nav-link"
-									href="{% url 'accounts:profile' %}"
-									>Profile</a
-								>
-							</li>
-							<!-- LOGIN button will be replaced here, if user is not logged in -->
-							<!--<li class="nav-item"><a class="redir nav-link" href="/dashboard">LOGIN</a></li>-->
-							{% if user.is_authenticated %}
-							<li class="nav-item">
-								<a
-									class="redir nav-link"
-									href="/accounts/logout"
-									>Logout</a
-								>
-							</li>
-							{% else %}
-							<li class="nav-item">
-								<a class="redir nav-link" href="/dashboard"
-									>LOGIN</a
-								>
-							</li>
-							{% endif %}
-						</ul>
-					</div>
-				</div>
-			</nav>
-		</div>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1"
+    />
+    {% block head-css %}
+    <link rel="icon" href="{% static 'dashboard/images/ico.ico' %}" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'dashboard/css/style.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'dashboard/css/footer.css' %}"
+    />
+    {% endblock head-css %}
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button
+              type="button"
+              class="navbar-toggle"
+              data-toggle="collapse"
+              data-target="#myNavbar"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand title" href="/dashboard">OSCHub</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right ulitem">
+              <li class="nav-item">
+                <a class="redir nav-link" href="{% url 'eventreg:eventList' %}"
+                  >Events</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="redir nav-link" href="{% url 'dashboard:speakers' %}"
+                  >Speakers</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="redir nav-link" href="{% url 'dashboard:about' %}"
+                  >About</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="redir nav-link" href="{% url 'accounts:profile' %}"
+                  >Profile</a
+                >
+              </li>
+              <!-- LOGIN button will be replaced here, if user is not logged in -->
+              <!--<li class="nav-item"><a class="redir nav-link" href="/dashboard">LOGIN</a></li>-->
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="redir nav-link" href="/accounts/logout">Logout</a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="redir nav-link" href="/dashboard">LOGIN</a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
 
-		<section>{% block content %} {% endblock content %}</section>
-	</body>
+    <section>{% block content %} {% endblock content %}</section>
 
-	{% block footer %}
-	<footer>
-		<div class="footer-container">
-			<div class="footer-a">
-				<div class="footer-a-wrapper">
-					<div class="footer-a-items">
-						<h2>About Us</h2>
-						<a
-							href="https://community.mozilla.org/en/groups/open-source-community/"
-							target="_blank"
-							rel="noopener"
-							>Mozilla Community Portal</a
-						>
-						<a
-							href="https://www.mozilla.org/en-US/about/governance/policies/participation/"
-							target="_blank"
-							rel="noopener"
-							>Community Participation Guidelines</a
-						>
-						<a
-							href="https://www.oscvitap.org/gallery"
-							target="_blank"
-							rel="noopener"
-							>Gallery</a
-						>
-					</div>
-					<div class="footer-a-items">
-						<h2>Contact Us</h2>
-						<a
-							href="https://www.oscvitap.org/contact"
-							target="_blank"
-							rel="noopener"
-							>Contact</a
-						>
-						<a
-							href="https://github.com/Open-Source-Community-VIT-AP/"
-							target="_blank"
-							rel="noopener"
-							>GitHub Organization</a
-						>
-					</div>
+    {% block footer %}
+    <footer>
+      <div class="footer-container">
+        <div class="footer-a">
+          <div class="footer-a-wrapper">
+            <div class="footer-a-items">
+              <h2>About Us</h2>
+              <a
+                href="https://community.mozilla.org/en/groups/open-source-community/"
+                target="_blank"
+                rel="noopener"
+                >Mozilla Community Portal</a
+              >
+              <a
+                href="https://www.mozilla.org/en-US/about/governance/policies/participation/"
+                target="_blank"
+                rel="noopener"
+                >Community Participation Guidelines</a
+              >
+              <a
+                href="https://www.oscvitap.org/gallery"
+                target="_blank"
+                rel="noopener"
+                >Gallery</a
+              >
+            </div>
+            <div class="footer-a-items">
+              <h2>Contact Us</h2>
+              <a
+                href="https://www.oscvitap.org/contact"
+                target="_blank"
+                rel="noopener"
+                >Contact</a
+              >
+              <a
+                href="https://github.com/Open-Source-Community-VIT-AP/"
+                target="_blank"
+                rel="noopener"
+                >GitHub Organization</a
+              >
+            </div>
 
-					<div class="footer-a-items">
-						<h2>Videos</h2>
-						<a
-							href="https://www.oscvitap.org/techcast"
-							target="_blank"
-							rel="noopener"
-							>Tech Cast Series</a
-						>
-					</div>
-					<div class="footer-a-items">
-						<h2>Admin</h2>
-						<a href="/admin" target="_blank" rel="noopener"
-							>Login</a
-						>
-						<a
-							href="https://www.oscvitap.org/"
-							target="_blank"
-							rel="noopener"
-							>OSC VITAP</a
-						>
-					</div>
-				</div>
-			</div>
-			<section class="social-media">
-				<div class="social-media-wrap">
-					<div class="footer-logo">
-						<a
-							href="https://www.oscvitap.org"
-							class="social-logo"
-							target="_blank"
-							rel="noopener"
-						>
-							<img
-								class="img"
-								src="{% static '/dashboard/images/osclogo.png' %}"
-								alt="osclogo"
-								width="240"
-								height="60"
-							/>
-						</a>
-					</div>
-					<small class="website-rights"
-						>Open Source Community: VIT-AP © 2020</small
-					>
-					<div class="social-icons">
-						<a
-							href="https://www.facebook.com/vitap.osc/"
-							class="social-icon-a"
-							target="_blank"
-							rel="noopener"
-							><i
-								aria-hidden="true"
-								class="fa fa-facebook"
-								data-toggle="tooltip"
-								title="Facebook"
-							></i
-						></a>
-						<a
-							href="https://www.instagram.com/osc.vitap/"
-							class="social-icon-a"
-							target="_blank"
-							rel="noopener"
-							><i
-								aria-hidden="true"
-								class="fa fa-instagram"
-								data-toggle="tooltip"
-								title="Instagram"
-							></i
-						></a>
-						<a
-							href="https://www.youtube.com/channel/UCL7e5F8GJIkLDKiu5pv2NAw"
-							class="social-icon-a"
-							target="_blank"
-							rel="noopener"
-							><i
-								aria-hidden="true"
-								class="fa fa-youtube"
-								data-toggle="tooltip"
-								title="Youtube"
-							></i
-						></a>
-						<a
-							href="https://www.linkedin.com/company/open-source-community-vit-ap"
-							class="social-icon-a"
-							target="_blank"
-							rel="noopener"
-							><i
-								aria-hidden="true"
-								class="fa fa-linkedin"
-								data-toggle="tooltip"
-								title="LinkedIn"
-							></i
-						></a>
-						<a
-							href="https://github.com/Open-Source-Community-VIT-AP/"
-							class="social-icon-a"
-							target="_blank"
-							rel="noopener"
-							><i
-								aria-hidden="true"
-								class="fa fa-github"
-								data-toggle="tooltip"
-								title="GitHub"
-							></i
-						></a>
-					</div>
-				</div>
-			</section>
-		</div>
-	</footer>
-	{% endblock footer %}
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+            <div class="footer-a-items">
+              <h2>Videos</h2>
+              <a
+                href="https://www.oscvitap.org/techcast"
+                target="_blank"
+                rel="noopener"
+                >Tech Cast Series</a
+              >
+            </div>
+            <div class="footer-a-items">
+              <h2>Admin</h2>
+              <a href="/admin" target="_blank" rel="noopener">Login</a>
+              <a href="https://www.oscvitap.org/" target="_blank" rel="noopener"
+                >OSC VITAP</a
+              >
+            </div>
+          </div>
+        </div>
+        <section class="social-media">
+          <div class="social-media-wrap">
+            <div class="footer-logo">
+              <a
+                href="https://www.oscvitap.org"
+                class="social-logo"
+                target="_blank"
+                rel="noopener"
+              >
+                <img
+                  class="img"
+                  src="{% static '/dashboard/images/osclogo.png' %}"
+                  alt="osclogo"
+                  width="240"
+                  height="60"
+                />
+              </a>
+            </div>
+            <small class="website-rights"
+              >Open Source Community: VIT-AP © 2020</small
+            >
+            <div class="social-icons">
+              <a
+                href="https://www.facebook.com/vitap.osc/"
+                class="social-icon-a"
+                target="_blank"
+                rel="noopener"
+                ><i
+                  aria-hidden="true"
+                  class="fa fa-facebook"
+                  data-toggle="tooltip"
+                  title="Facebook"
+                ></i
+              ></a>
+              <a
+                href="https://www.instagram.com/osc.vitap/"
+                class="social-icon-a"
+                target="_blank"
+                rel="noopener"
+                ><i
+                  aria-hidden="true"
+                  class="fa fa-instagram"
+                  data-toggle="tooltip"
+                  title="Instagram"
+                ></i
+              ></a>
+              <a
+                href="https://www.youtube.com/channel/UCL7e5F8GJIkLDKiu5pv2NAw"
+                class="social-icon-a"
+                target="_blank"
+                rel="noopener"
+                ><i
+                  aria-hidden="true"
+                  class="fa fa-youtube"
+                  data-toggle="tooltip"
+                  title="Youtube"
+                ></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/company/open-source-community-vit-ap"
+                class="social-icon-a"
+                target="_blank"
+                rel="noopener"
+                ><i
+                  aria-hidden="true"
+                  class="fa fa-linkedin"
+                  data-toggle="tooltip"
+                  title="LinkedIn"
+                ></i
+              ></a>
+              <a
+                href="https://github.com/Open-Source-Community-VIT-AP/"
+                class="social-icon-a"
+                target="_blank"
+                rel="noopener"
+                ><i
+                  aria-hidden="true"
+                  class="fa fa-github"
+                  data-toggle="tooltip"
+                  title="GitHub"
+                ></i
+              ></a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </footer>
+    {% endblock footer %}
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </html>

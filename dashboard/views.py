@@ -51,7 +51,7 @@ class DashboardView(TemplateView):
 
 
 class SpeakerView(ListView):
-    template_name = "dashboard/speakers2.html"
+    template_name = "dashboard/speakers.html"
     context_object_name = "Speakers"
     model = Speaker
 
