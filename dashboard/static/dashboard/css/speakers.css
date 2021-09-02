@@ -6,15 +6,16 @@
   font-family:  'helvetica' ,sans;
 }
 html,body{
-  display: grid;
-  height: 100%;
-  background-color: #242b2e;
+   display: grid; 
+  height: 90%;
+  margin-left: 10%;
+  align-items: center;
   overflow: hidden;
+  background-color: #242b2e;
 }
 .slider{
   max-width: 1000px;
   display: flex;
-  margin: 10px 260px;
 }
 
 .slider .card {
@@ -86,3 +87,18 @@ html,body{
   bottom: 0px;
 }
 
+section{
+  position:relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+
+section .wave{
+  position: absolute;
+  bottom: 0 ;
+  left: 0;
+  width: 100%;
+  background: url(img/margaret\ to\ me.png);
+  background-size: 1000px 100px;
+}
