@@ -6,13 +6,38 @@
   font-family:  'helvetica' ,sans;
 }
 html,body{
-   display: grid; 
+  display: grid; 
   height: 90%;
   margin-left: 10%;
   align-items: center;
   overflow: hidden;
   background-color: #242b2e;
 }
+
+@media screen and (max-width: 600px) {
+  html {
+    margin-left: 12%;
+  }
+}
+@media screen and ( min-height:900px) {
+  html,body {
+    margin-left: 20%;
+    height: 80%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  html {
+    margin-left: 4%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  html {
+    margin-left: 0%;
+  }
+}
+
 .slider{
   max-width: 1000px;
   display: flex;
