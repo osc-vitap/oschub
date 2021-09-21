@@ -6,15 +6,108 @@
   font-family:  'helvetica' ,sans;
 }
 html,body{
-  display: grid;
-  height: 100%;
-  background-color: #242b2e;
+  display: grid; 
+  height: 88%;
+  margin-left: 10%;
+  align-items: center;
   overflow: hidden;
+  background-color: #242b2e;
+}
+
+/*  for mobiles view*/
+
+@media screen and (max-width: 340px) {
+  .slider .card {
+    width: 150px !important;
+    height: 200px !important;
+  } 
+  body{
+    margin-top: 2vh !important;
+    margin-left: 15vw !important;
+  }
+  html{
+    margin-left: 10vw !important;
+  }
+  .card .content .title{
+    font-size: 8px !important;
+  }
+  .card .content .sub-title{
+    font-size: 6px !important;
+  }
+
+  .card:hover .content {
+    bottom: -50px !important;
+  }
+}
+
+@media screen and (max-width: 361px) {
+  body {
+    margin-left: 8%;
+    margin-top: 10vh;
+  }
+  html{
+    margin-left: 0;
+  } 
+}
+
+@media screen and (min-width: 362px) and (max-width: 399px) {
+  html {
+    margin-left: 0;
+    margin-top: 5vh;
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 499px) {
+  body {
+    margin-left: 10%;
+    margin-top: 4vh;
+  }
+  html{
+    margin-left: 4%;
+  }
+}
+
+@media screen and (min-width: 500px) and (max-width: 599px) {
+  body {
+    margin-left: 15vw !important;
+    margin-top: 8vh;
+  }
+  .slider .card {
+    width: 250px !important;
+    height: 350px !important;
+  } 
+}
+
+@media screen and (min-width: 600px) and (max-width: 699px) {
+  html {
+    margin-left: 5%;
+  }
+}
+
+
+/* for tab view */
+
+@media screen and ( min-height:1300px){
+  body {
+    margin-left: 17vw !important;
+    margin-top: 2vh !important;
+  }
+  .slider .card {
+    width: 450px !important;
+    height: 550px !important;
+  } 
+}
+
+@media screen and ( min-height:900px) and (max-height: 1299px) {
+  html,body {
+    margin-left: 17%;
+    height: 80%;
+    margin-top: 6vh;
+  }
 }
 .slider{
   max-width: 1000px;
   display: flex;
-  margin: 10px 260px;
 }
 
 .slider .card {
@@ -54,7 +147,7 @@ html,body{
   position: absolute;
   text-align: center;
   align-items: center;
-  bottom: 400px;
+  bottom: 550px;
   left: 0;
   background: transparent;
   width: 100%;
@@ -85,4 +178,3 @@ html,body{
 .card:hover .content {
   bottom: 0px;
 }
-
