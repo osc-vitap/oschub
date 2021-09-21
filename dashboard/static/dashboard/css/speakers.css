@@ -7,37 +7,67 @@
 }
 html,body{
   display: grid; 
-  height: 90%;
+  height: 88%;
   margin-left: 10%;
   align-items: center;
   overflow: hidden;
   background-color: #242b2e;
 }
 
-@media screen and (max-width: 600px) {
-  html {
-    margin-left: 12%;
+/*  for mobiles */
+@media screen and (max-width: 361px) {
+  body {
+    margin-left: 8%;
+    margin-top: 10vh;
   }
-}
-@media screen and ( min-height:900px) {
-  html,body {
-    margin-left: 20%;
-    height: 80%;
+  html{
+    margin-left: 0;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (min-width: 362px) {
+  html {
+    margin-left: 0;
+    margin-top: 5vh;
+  }
+}
+
+@media screen and (min-width: 400px) {
+  body {
+    margin-left: 13vw;
+    margin-top: 4vh;
+  }
+}
+
+@media screen and (min-width: 500px) {
   html {
     margin-left: 4%;
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (min-width: 600px) {
   html {
-    margin-left: 0%;
+    margin-left: 12%;
   }
 }
 
+
+/* for tab */
+
+@media screen and ( min-height:1300px) {
+  body {
+    margin-left: 35vw;
+    margin-top: 8vh;
+  }
+}
+
+@media screen and ( min-height:900px) {
+  html,body {
+    margin-left: 17%;
+    height: 80%;
+    margin-top: 6vh;
+  }
+}
 .slider{
   max-width: 1000px;
   display: flex;
