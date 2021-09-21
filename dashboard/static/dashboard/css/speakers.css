@@ -14,7 +14,22 @@ html,body{
   background-color: #242b2e;
 }
 
-/*  for mobiles */
+/*  for mobiles view*/
+
+@media screen and (max-width: 340px) {
+  .slider .card {
+    width: 150px !important;
+    height: 200px !important;
+  } 
+  body{
+    margin-top: 2vh !important;
+    margin-left: 15vw !important;
+  }
+  html{
+    margin-left: 10vw !important;
+  }
+}
+
 @media screen and (max-width: 361px) {
   body {
     margin-left: 8%;
@@ -22,7 +37,7 @@ html,body{
   }
   html{
     margin-left: 0;
-  }
+  } 
 }
 
 @media screen and (min-width: 362px) {
@@ -47,12 +62,12 @@ html,body{
 
 @media screen and (min-width: 600px) {
   html {
-    margin-left: 12%;
+    margin-left: 5%;
   }
 }
 
 
-/* for tab */
+/* for tab view */
 
 @media screen and ( min-height:1300px) {
   body {
