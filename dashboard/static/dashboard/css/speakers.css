@@ -50,27 +50,35 @@ html,body{
   } 
 }
 
-@media screen and (min-width: 362px) {
+@media screen and (min-width: 362px) and (max-width: 399px) {
   html {
     margin-left: 0;
     margin-top: 5vh;
   }
 }
 
-@media screen and (min-width: 400px) {
+@media screen and (min-width: 400px) and (max-width: 499px) {
   body {
-    margin-left: 13vw;
+    margin-left: 10%;
     margin-top: 4vh;
   }
-}
-
-@media screen and (min-width: 500px) {
-  html {
+  html{
     margin-left: 4%;
   }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) and (max-width: 599px) {
+  body {
+    margin-left: 15vw !important;
+    margin-top: 8vh;
+  }
+  .slider .card {
+    width: 250px !important;
+    height: 350px !important;
+  } 
+}
+
+@media screen and (min-width: 600px) and (max-width: 699px) {
   html {
     margin-left: 5%;
   }
@@ -79,14 +87,18 @@ html,body{
 
 /* for tab view */
 
-@media screen and ( min-height:1300px) {
+@media screen and ( min-height:1300px){
   body {
-    margin-left: 35vw;
-    margin-top: 8vh;
+    margin-left: 17vw !important;
+    margin-top: 2vh !important;
   }
+  .slider .card {
+    width: 450px !important;
+    height: 550px !important;
+  } 
 }
 
-@media screen and ( min-height:900px) {
+@media screen and ( min-height:900px) and (max-height: 1299px) {
   html,body {
     margin-left: 17%;
     height: 80%;
@@ -135,7 +147,7 @@ html,body{
   position: absolute;
   text-align: center;
   align-items: center;
-  bottom: 400px;
+  bottom: 550px;
   left: 0;
   background: transparent;
   width: 100%;
