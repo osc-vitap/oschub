@@ -28,6 +28,16 @@ html,body{
   html{
     margin-left: 10vw !important;
   }
+  .card .content .title{
+    font-size: 8px !important;
+  }
+  .card .content .sub-title{
+    font-size: 6px !important;
+  }
+
+  .card:hover .content {
+    bottom: -50px !important;
+  }
 }
 
 @media screen and (max-width: 361px) {
