@@ -1,19 +1,7 @@
-$(".slider").owlCarousel({
-  loop: true,
-  autoplay:true,
-  autoplayTimeout: 2000,
-  autoplayHoverPause: true,
-  dots:true,
-  responsiveClass:true,
-  responsive:
-  {
-    0:
-    {
-      items:1,
-      nav:false,
-    },
-    1200:{
-      items:3,
-    }
-  }
-})
+let progress = document.getElementById('progg');
+        let total = document.body.scrollHeight - window.innerHeight;
+
+        window.onscroll = function(){
+            let proghght = (window.pageYOffset / total)*100;
+            progress.style.height = proghght +"%";
+        }
