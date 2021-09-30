@@ -1,10 +1,6 @@
 default: ## Run the application
 	@. ./oscenv/bin/activate && python manage.py runserver
 
-activate: ## Activate the virtual environment
-	@-virtualenv oscenv
-	. ./oscenv/bin/activate
-
 freeze: ## Freeze pip to requirements
 	@. ./oscenv/bin/activate && pip freeze > requirements.txt
 
