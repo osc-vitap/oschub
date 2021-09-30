@@ -15,7 +15,9 @@ class DashboardView(TemplateView):
     def get(self, request, *args, **kwargs):
         if request.user.is_anonymous:
             return HttpResponseRedirect("/")
-        Quary = EventUserData.objects.filter(studentEmail=request.user.email).order_by('-eventName__eventDate')
+        Quary = EventUserData.objects.filter(studentEmail=request.user.email).order_by(
+            "-eventName__eventDate"
+        )
         upcoming = []
         current = []
         past = []
@@ -60,9 +62,15 @@ class AboutView(TemplateView):
     template_name = "dashboard/about.html"
 
     def post(self, request):
-        emailto = 'osc@vitap.ac.in'  # Put The Receiver's Email Id here
-        msg = request.POST[
-                  "message"] + f"\n\nName of Sender: {request.POST['name']} \nEmail of Sender: {request.POST['email']}"
-        send_mail(subject=f"OSCHub Feedback from {request.POST['name']}", message=msg,
-                  from_email=request.POST["email"], recipient_list=[emailto])
+        emailto = "osc@vitap.ac.in"  # Put The Receiver's Email Id here
+        msg = (
+            request.POST["message"]
+            + f"\n\nName of Sender: {request.POST['name']} \nEmail of Sender: {request.POST['email']}"
+        )
+        send_mail(
+            subject=f"OSCHub Feedback from {request.POST['name']}",
+            message=msg,
+            from_email=request.POST["email"],
+            recipient_list=[emailto],
+        )
         return HttpResponseRedirect(request.META.get("HTTP_REFERER", "/"))

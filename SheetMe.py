@@ -72,12 +72,12 @@ def getCompletedEvents():
     )  # gets the events with date before today
     eventlist = []
     for event in events:
-        eventlist.append(event.eventName.replace(':', '|'))
+        eventlist.append(event.eventName.replace(":", "|"))
     events = Event.objects.filter(eventDate=datetime.date.today()).filter(
         eventEndTime__lt=datetime.datetime.now().strftime("%H:%M:%S")
     )
     for event in events:
-        eventlist.append(event.eventName.replace(':', '|'))
+        eventlist.append(event.eventName.replace(":", "|"))
     return eventlist
 
 
@@ -111,7 +111,9 @@ def updateData():
         if event in sheetList:
             print(f"[!] Skipping the Sheet, the worksheet {event} already exists !!")
         else:
-            students = EventUserData.objects.filter(eventName__eventName=event.replace('|', ':'))
+            students = EventUserData.objects.filter(
+                eventName__eventName=event.replace("|", ":")
+            )
             for student in students:
                 studentList.append(
                     [
@@ -155,7 +157,9 @@ SCOPE = [
 ]
 
 credential_info = json.loads(config("CREDENTIALS"))
-credential = service_account.Credentials.from_service_account_info(credential_info, scopes=SCOPE)
+credential = service_account.Credentials.from_service_account_info(
+    credential_info, scopes=SCOPE
+)
 service = gspread.authorize(credential)
 
 if __name__ == "__main__":
