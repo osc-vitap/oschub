@@ -1,6 +1,9 @@
 default: ## Run the application
 	@. ./oscenv/bin/activate && python manage.py runserver
 
+update-data: ## Performs migrations and applies changes
+	@. ./oscenv/bin/activate && python manage.py makemigrations && python manage.py migrate
+
 freeze: ## Freeze pip to requirements
 	@. ./oscenv/bin/activate && pip freeze > requirements.txt
 
