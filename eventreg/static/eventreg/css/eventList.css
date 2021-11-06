@@ -9,14 +9,14 @@ body {
 }
 .eventsec_list{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
 }
 .eventsec_card {
   width: 330px;
   height: auto;
   border-radius: 10px;
-  margin-bottom: 68px;
+  margin: 20px;
   display: flex;
   flex-direction: column;
   min-width: 0;
